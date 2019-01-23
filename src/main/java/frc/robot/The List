@@ -1,0 +1,59 @@
+{Gamepad 1 (controller)}
+
+leftAxisY - Left Wheels (front & back)
+rightAxisY - Right Wheels (front & back)
+
+kBtnY - Wrist Up (preset)
+kBtnX - Wrist Down (preset)
+
+kBtnLB - Intake In (hold)
+kBtnRB - Intake Out (hold)
+
+kBtnB - Pistons Out (hold)
+
+{Gamepad 2 (num pad)}
+
+
+    Balls
+<4> - High: 83.5 in
+<1> - Mid: 55.5 in
+<0> - Low: 27.5 in
+
+    Hatches
+<5> - High: 75 in
+<2> - Mid: 47 in
+<00> - Low: 19 in
+
+    Cargo Ship
+<.> - Open: 31.5 in+
+
+<+> - Elevator Up
+<-> - Elevator Down
+
+<3> - Loading Dock: ~44 in
+
+<ENTER> - Neutral Pos.
+
+
+{Combos}
+
+
+Ball Handling
+    Off ground (kBtnLB + kBtnX)
+    Into Rocket/Cargo Ship (<0 1 4 .> + kBtnRB)
+    From Loading Dock (<+> + kBtnRB)
+
+Hatch Handling
+    Off ground (kBtnX + <+>)
+    Onto Rocket/Cargo Ship (<00 2 5> + <<piston>>)
+    From Loading Dock (<3> + kBtnLB)
+
+
+{Subsystems}
+
+
+Drive Train (Done)
+Intake (Incomplete)
+Wrist (Incomplete)
+Shoulder (Incomplete)
+Elevator (Incomplete)
