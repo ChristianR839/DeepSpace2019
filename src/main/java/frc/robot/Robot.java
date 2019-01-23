@@ -12,6 +12,7 @@ import frc.robot.OI;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Wrist;
+import frc.robot.subsystems.Pistons;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -28,6 +29,7 @@ public class Robot extends IterativeRobot
     public static Intake intake = null;
     public static Elevator elevator = null;
     public static Wrist wrist = null;
+    public static Pistons pistons = null;
     public static OI oi;
 
     public static double defaultRamprate = 0.2;
