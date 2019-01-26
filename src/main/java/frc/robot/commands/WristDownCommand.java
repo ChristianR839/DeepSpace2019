@@ -20,7 +20,6 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class WristDownCommand extends Command
 {
-
   double power = 1;
 
   public WristDownCommand(double duration)
