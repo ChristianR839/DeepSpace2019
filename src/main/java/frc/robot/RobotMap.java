@@ -20,6 +20,8 @@ import edu.wpi.first.wpilibj.Joystick;
  * FRC 839
  */
 
+ //NOTE: ADD PISTONS STUFF//
+
 public class RobotMap
 {
     private static final int TalonSRX04ID = 4;  //Right Front
