@@ -49,11 +49,19 @@ Hatch Handling
     From Loading Dock (<3> + kBtnLB)
 
 
-{Subsystems}
+To-Do List
+
+- Figure out pneumatics
+- Make a working test bed
+- Vision with the Pixy/Arduino
+- Put MORE songs on the playlist
 
 
-Drive Train (Done)
-Intake (Incomplete)
-Wrist (Incomplete)
-Shoulder (Incomplete)
-Elevator (Incomplete)
+Author Tag
+
+/*
+ * @Authors
+ * Christian
+ * Jackson
+ * FRC 839
+ */

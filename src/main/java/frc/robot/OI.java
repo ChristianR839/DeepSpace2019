@@ -14,7 +14,14 @@ import frc.robot.commands.IntakeOutCommand;
 import frc.robot.commands.WristDownCommand;
 import frc.robot.commands.WristUpCommand;
 import frc.robot.commands.PistonsCommand;
-import frc.robot.commands.ElevatorPresetsInput;
+import frc.robot.commands.presets.BallCargoPreset;
+import frc.robot.commands.presets.BallHighPreset;
+import frc.robot.commands.presets.BallLoadPreset;
+import frc.robot.commands.presets.BallLowPreset;
+import frc.robot.commands.presets.BallMidPreset;
+import frc.robot.commands.presets.HatchHighPreset;
+import frc.robot.commands.presets.HatchLowPreset;
+import frc.robot.commands.presets.HatchMidPreset;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -38,7 +45,14 @@ public class OI
     public Button wristDownButton;
     public Button wristUpButton;
     public Button pistonsButton;
-    public Button elevatorPresetsInputButton;
+    public Button ballcargopresetbutton;
+    public Button ballhighpresetbutton;
+    public Button ballloadpresetbutton;
+    public Button balllowpresetbutton;
+    public Button ballmidpresetbutton;
+    public Button hatchhighpresetbutton;
+    public Button hatchlowpresetbutton;
+    public Button hatchmidpresetbutton;
 
     public OI()
     {
@@ -53,6 +67,14 @@ public class OI
 
         pistonsButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnB);
 
-        elevatorPresetsInputButton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        ballcargopresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        ballhighpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        ballloadpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        balllowpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        ballmidpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+
+        hatchhighpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        hatchlowpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        hatchmidpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
     }
 }

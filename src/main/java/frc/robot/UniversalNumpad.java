@@ -8,6 +8,9 @@ package frc.robot;
 //import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.DigitalInput;
+
+//NOTE: WE MAY NOT END UP USING THIS FILE//
 
 /**
  *
@@ -28,7 +31,9 @@ public class UniversalNumpad extends Joystick
     public static final int     kBtnY       = 4;
     public static final int     kBtnLB      = 5;
     public static final int     kBtnRB      = 6;
-    public static final int     kBtnBack    = 7;
+    public
+    
+    static final int     kBtnBack    = 7;
     public static final int     kBtnStart   = 8;
     public static final int     kBtnLStick  = 9;
     public static final int     kBtnRStick  =10;

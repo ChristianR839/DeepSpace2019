@@ -15,6 +15,8 @@ import frc.robot.subsystems.Wrist;
 import frc.robot.subsystems.Pistons;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 /*
