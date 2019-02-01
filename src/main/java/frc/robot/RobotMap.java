@@ -34,12 +34,12 @@ public class RobotMap
     private static final int elevatorMotorID = 69;
     private static final int elevatorMotorFollowerID = 69;
 
-    private static final int intakeMotorID = 69;
+    private static final int intakeMotorID = 5;
 
     private static final int shoulderMotorID = 69;
     private static final int shoulderMotorFollowerID = 69;
 
-    private static final int wristMotorID = 69;
+    private static final int wristMotorID = 6;
 
 
     public static final WPI_TalonSRX _rghtFront = new WPI_TalonSRX(TalonSRX04ID);

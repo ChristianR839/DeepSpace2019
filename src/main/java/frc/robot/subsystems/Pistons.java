@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 /*
  * @Authors
@@ -24,11 +25,17 @@ public class Pistons extends Subsystem
   @Override
   public void initDefaultCommand()
   {
+    DoubleSolenoid pistonDouble = new DoubleSolenoid(1, 2);
 
+    pistonDouble.set(DoubleSolenoid.Value.kOff);
+    pistonDouble.set(DoubleSolenoid.Value.kForward);
+    pistonDouble.set(DoubleSolenoid.Value.kReverse);
+    
   }
 
   public void push()
 	{
+    
 		//RobotMap.'solenoid_name'.set(.6);
   }
 
