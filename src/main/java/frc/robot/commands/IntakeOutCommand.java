@@ -53,7 +53,7 @@ public class IntakeOutCommand extends Command
   @Override
   protected void execute()
   {
-    Robot.intake.outtake(outtakeSpeed);
+    Robot.intake.outtake();
   }
 
   @Override

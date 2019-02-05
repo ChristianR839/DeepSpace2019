@@ -34,18 +34,23 @@ public class Robot extends IterativeRobot
     public static Pistons pistons = null;
     public static OI oi;
 
-    public static double defaultRamprate = 0.2;
+    public static double defaultRampRate = 0.2;
 
 
     public void teleopInit() 
     {
-	
+        RobotMap._leftFront.configOpenloopRamp(Robot.defaultRampRate, 0);
+		RobotMap._leftFollower.configOpenloopRamp(Robot.defaultRampRate, 0);
+		RobotMap._rghtFront.configOpenloopRamp(Robot.defaultRampRate, 0);
+        RobotMap._rghtFollower.configOpenloopRamp(Robot.defaultRampRate, 0);
     }
 
-
+    @Override
     public void teleopPeriodic() 
     {
         Scheduler.getInstance().run();
+        System.out.print(UniversalJoystick.aBtnNames);
+        //System.out.print("XXXXXXXXXXXXXXXXXXXXX");
     }
 
 

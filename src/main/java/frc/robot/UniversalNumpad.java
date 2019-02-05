@@ -52,8 +52,8 @@ public class UniversalNumpad extends Joystick
     {
         super( nJoystick );
         
-//        System.out.print  ( "Joystick Type = ");
-//        System.out.println( getJoystickType() );
+        System.out.print  ( "Joystick Type = ");
+        System.out.println( getJoystickType() );
     }
     
     public JoystickButton createButton( int nBtn )
@@ -197,7 +197,7 @@ public class UniversalNumpad extends Joystick
     public boolean getBtnRightStick   () { return this.getRawButton( mapButton(10 )); }
     public boolean getBtnLeftTrigger  () { return this.getRawButton( mapButton(11 )); }
     public boolean getBtnRightTrigger () { return this.getRawButton( mapButton(12 )); }
-            
+    
     public int mapButton( int nBtn )
     {
         int[] aMap = null;

@@ -25,37 +25,38 @@ public class IntakeInCommand extends Command
   double power = 1;
   double maxCurrent = 0;
   
-  public IntakeInCommand(double duration)
+  /*public IntakeInCommand(double duration)
   {
   	this.setTimeout(duration);
-  	this.power = 1;
+    this.power = 1;
+    requires(Robot.intake); //repetitive?
+  }*/
+
+  public IntakeInCommand()
+  {
     requires(Robot.intake);
   }
-
   @Override
   protected void initialize()
   {
-
+    System.out.print("XXXXXXXXXXXXXXXXXXXXX");
   }
-
   @Override
   protected void execute()
   {
     Robot.intake.intake();
+    System.out.println(RobotMap.intakeMotor.isAlive());
   }
-
   @Override
   protected boolean isFinished()
   {
     return false;
   }
-
   @Override
   protected void end()
   {
     Robot.intake.stop();
   }
-
   @Override
   protected void interrupted()
   {

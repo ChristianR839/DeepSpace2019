@@ -39,9 +39,27 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.command.Scheduler;
+
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.IntakeInCommand;
+
+import frc.robot.OI;
+
+import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Elevator;
+import frc.robot.subsystems.Wrist;
+import frc.robot.subsystems.Pistons;
+
 //import frc.robot.UniversalJoystick;
 
 public class DriveCode extends TimedRobot {
+    public static Intake intake = null;
+    public static Elevator elevator = null;
+    public static Wrist wrist = null;
+    public static Pistons pistons = null;
+    public static OI oi;
     /*
      * --- [1] Update CAN Device IDs and use WPI_VictorSPX where necessary ------
      */
@@ -50,6 +68,8 @@ public class DriveCode extends TimedRobot {
     WPI_TalonSRX _leftFront = new WPI_TalonSRX(1);
     WPI_TalonSRX _leftFollower = new WPI_TalonSRX(2);
 
+    public static double defaultRampRate = 1;
+
     DifferentialDrive _diffDrive = new DifferentialDrive(_leftFront, _rghtFront);
 
     Joystick joystick0 = new Joystick(0);
@@ -57,12 +77,11 @@ public class DriveCode extends TimedRobot {
     Faults _faults_L = new Faults();
     Faults _faults_R = new Faults();
 
-    @Override
+
     public void teleopPeriodic() {
-        //RobotMap.rghtFront.configOpenloopRamp(Robot.defaultRampRate, 0);
-		//RobotMap.rghtFollower.configOpenloopRamp(Robot.defaultRampRate, 0);
-		//RobotMap.leftFront.configOpenloopRamp(Robot.defaultRampRate, 0);
-		//RobotMap.leftFollower.configOpenloopRamp(Robot.defaultRampRate, 0);
+
+        Scheduler.getInstance().run();
+
         String work = "";
 
         /* get gamepad stick values */
@@ -112,6 +131,9 @@ public class DriveCode extends TimedRobot {
         //if (btn1) {
         //    System.out.println(work);
         //}
+
+        //System.out.println(RobotMap._leftFront.getMotorOutputPercent());
+
     }
 
     @Override
@@ -121,6 +143,11 @@ public class DriveCode extends TimedRobot {
         _rghtFollower.configFactoryDefault();
         _leftFront.configFactoryDefault();
         _leftFollower.configFactoryDefault();
+
+        RobotMap._leftFront.configOpenloopRamp(Robot.defaultRampRate, 0);
+	    RobotMap._leftFollower.configOpenloopRamp(Robot.defaultRampRate, 0);
+		RobotMap._rghtFront.configOpenloopRamp(Robot.defaultRampRate, 0);
+		RobotMap._rghtFollower.configOpenloopRamp(Robot.defaultRampRate, 0);
 
         /* set up followers */
         _rghtFollower.follow(_rghtFront);

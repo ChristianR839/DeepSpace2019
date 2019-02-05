@@ -62,6 +62,9 @@ public class OI
         intakeInButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnLB);
         intakeOutButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnRB);
 
+        intakeInButton.whileHeld(new IntakeInCommand());
+    	intakeOutButton.whileHeld(new IntakeOutCommand());
+
         wristDownButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
         wristUpButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
 

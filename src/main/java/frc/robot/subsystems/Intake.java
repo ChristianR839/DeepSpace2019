@@ -33,9 +33,9 @@ public class Intake extends Subsystem
 		RobotMap.intakeMotor.set(.6);
   }
   
-  public void outtake(double d)
+  public void outtake()
 	{
-		RobotMap.intakeMotor.set(-d);
+		RobotMap.intakeMotor.set(-.6);
   }
   
   public void stop()
