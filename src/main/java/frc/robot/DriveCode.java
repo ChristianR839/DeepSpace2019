@@ -30,7 +30,7 @@
  * [4] Now that motors are driving correctly, check sensor phase.  If sensor is out of phase, adjust sensor phase.
  * [4] Is only necessary if you have sensors.
  */
-package frc.robot;
+/*package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.Faults;
 import com.ctre.phoenix.motorcontrol.InvertType;
@@ -55,15 +55,10 @@ import frc.robot.subsystems.Pistons;
 //import frc.robot.UniversalJoystick;
 
 public class DriveCode extends TimedRobot {
-    public static Intake intake = null;
-    public static Elevator elevator = null;
-    public static Wrist wrist = null;
-    public static Pistons pistons = null;
-    public static OI oi;
     /*
      * --- [1] Update CAN Device IDs and use WPI_VictorSPX where necessary ------
      */
-    WPI_TalonSRX _rghtFront = new WPI_TalonSRX(4);
+ /*   WPI_TalonSRX _rghtFront = new WPI_TalonSRX(4);
     WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(3);
     WPI_TalonSRX _leftFront = new WPI_TalonSRX(1);
     WPI_TalonSRX _leftFollower = new WPI_TalonSRX(2);
@@ -80,17 +75,19 @@ public class DriveCode extends TimedRobot {
 
     public void teleopPeriodic() {
 
+        System.out.print("X");
+
         Scheduler.getInstance().run();
 
         String work = "";
 
         /* get gamepad stick values */
-        double leftforw = -1*joystick0.getRawAxis(5); /* positive is forward */
-        double rightforw = joystick0.getRawAxis(1); /* positive is forward */
-        //boolean btn1 = joystick.getRawButton(1); /* is button is down, print joystick values */
+     //   double leftforw = -1*joystick0.getRawAxis(5); /* positive is forward */
+      //  double rightforw = joystick0.getRawAxis(1); /* positive is forward */
+      //  boolean btn1 = joystick0.getRawButton(1); /* is button is down, print joystick values */
 
         /* deadband gamepad 10% */
-        if (Math.abs(leftforw) < 0.10) {
+     /*   if (Math.abs(leftforw) < 0.10) {
             leftforw = 0;
         }
         if (Math.abs(rightforw) < 0.10) {
@@ -98,34 +95,34 @@ public class DriveCode extends TimedRobot {
         }
 
         /* drive robot */
-        _diffDrive.tankDrive(leftforw, rightforw);
+      //  _diffDrive.tankDrive(leftforw, rightforw);
 
         /*
          * [2] Make sure Gamepad Forward is positive for FORWARD, and GZ is positive for
          * RIGHT
          */
-        work += " GF:" + leftforw + " GT:" + rightforw;
+      //  work += " GF:" + leftforw + " GT:" + rightforw;
 
         /* get sensor values */
         // double leftPos = _leftFront.GetSelectedSensorPosition(0);
         // double rghtPos = _rghtFront.GetSelectedSensorPosition(0);
-        double leftVelUnitsPer100ms = _leftFront.getSelectedSensorVelocity(0);
-        double rghtVelUnitsPer100ms = _rghtFront.getSelectedSensorVelocity(0);
+      //  double leftVelUnitsPer100ms = _leftFront.getSelectedSensorVelocity(0);
+      //  double rghtVelUnitsPer100ms = _rghtFront.getSelectedSensorVelocity(0);
 
-        work += " L:" + leftVelUnitsPer100ms + " R:" + rghtVelUnitsPer100ms;
+      //  work += " L:" + leftVelUnitsPer100ms + " R:" + rghtVelUnitsPer100ms;
 
         /*
          * drive motor at least 25%, Talons will auto-detect if sensor is out of phase
          */
-        _leftFront.getFaults(_faults_L);
-        _rghtFront.getFaults(_faults_R);
+     //   _leftFront.getFaults(_faults_L);
+      //  _rghtFront.getFaults(_faults_R);
 
-        if (_faults_L.SensorOutOfPhase) {
-            work += " L sensor is out of phase";
-        }
-        if (_faults_R.SensorOutOfPhase) {
-            work += " R sensor is out of phase";
-        }
+      //  if (_faults_L.SensorOutOfPhase) {
+      //      work += " L sensor is out of phase";
+      //  }
+     //   if (_faults_R.SensorOutOfPhase) {
+      //      work += " R sensor is out of phase";
+     //   }
 
         /* print to console if btn1 is held down */
         //if (btn1) {
@@ -134,12 +131,12 @@ public class DriveCode extends TimedRobot {
 
         //System.out.println(RobotMap._leftFront.getMotorOutputPercent());
 
-    }
+  //  }
 
-    @Override
+  /*  @Override
     public void robotInit() {
         /* factory default values */
-        _rghtFront.configFactoryDefault();
+  /*      _rghtFront.configFactoryDefault();
         _rghtFollower.configFactoryDefault();
         _leftFront.configFactoryDefault();
         _leftFollower.configFactoryDefault();
@@ -150,29 +147,29 @@ public class DriveCode extends TimedRobot {
 		RobotMap._rghtFollower.configOpenloopRamp(Robot.defaultRampRate, 0);
 
         /* set up followers */
-        _rghtFollower.follow(_rghtFront);
-        _leftFollower.follow(_leftFront);
+   //     _rghtFollower.follow(_rghtFront);
+    //    _leftFollower.follow(_leftFront);
 
         /* [3] flip values so robot moves forward when stick-forward/LEDs-green */
-        _rghtFront.setInverted(true); // !< Update this
-        _leftFront.setInverted(true); // !< Update this
+     //   _rghtFront.setInverted(true); // !< Update this
+    //    _leftFront.setInverted(true); // !< Update this
 
         /*
          * set the invert of the followers to match their respective master controllers
          */
-        _rghtFollower.setInverted(InvertType.FollowMaster);
-        _leftFollower.setInverted(InvertType.FollowMaster);
+      //  _rghtFollower.setInverted(InvertType.FollowMaster);
+    //    _leftFollower.setInverted(InvertType.FollowMaster);
 
         /*
          * [4] adjust sensor phase so sensor moves positive when Talon LEDs are green
          */
-        _rghtFront.setSensorPhase(true);
-        _leftFront.setSensorPhase(true);
+    //    _rghtFront.setSensorPhase(true);
+    //    _leftFront.setSensorPhase(true);
 
         /*
          * WPI drivetrain classes defaultly assume left and right are opposite. call
          * this so we can apply + to both sides when moving forward. DO NOT CHANGE
          */
-        _diffDrive.setRightSideInverted(false);
-    }
-}
+   //     _diffDrive.setRightSideInverted(false);
+ /////   }
+//}

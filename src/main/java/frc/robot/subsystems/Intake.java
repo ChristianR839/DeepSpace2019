@@ -30,7 +30,8 @@ public class Intake extends Subsystem
 
   public void intake()
 	{
-		RobotMap.intakeMotor.set(.6);
+    RobotMap.intakeMotor.set(.6);
+    System.out.print("XXXXXXXXXXXXXXXXXXXXX");
   }
   
   public void outtake()

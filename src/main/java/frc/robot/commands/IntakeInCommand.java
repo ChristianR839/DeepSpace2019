@@ -39,13 +39,13 @@ public class IntakeInCommand extends Command
   @Override
   protected void initialize()
   {
-    System.out.print("XXXXXXXXXXXXXXXXXXXXX");
+
   }
   @Override
   protected void execute()
   {
     Robot.intake.intake();
-    System.out.println(RobotMap.intakeMotor.isAlive());
+    System.out.print("XXXXXXXXXXXXXXXXXXXXX");
   }
   @Override
   protected boolean isFinished()

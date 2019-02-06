@@ -26,6 +26,6 @@ public final class Main {
    */
   
   public static void main(String... args) {
-    RobotBase.startRobot(DriveCode::new);
+    RobotBase.startRobot(Robot::new);
   }
 }

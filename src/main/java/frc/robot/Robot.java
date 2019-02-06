@@ -13,11 +13,32 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Wrist;
 import frc.robot.subsystems.Pistons;
+import frc.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.command.Scheduler;
+
+import com.ctre.phoenix.motorcontrol.Faults;
+import com.ctre.phoenix.motorcontrol.InvertType;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.command.Scheduler;
+
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.IntakeInCommand;
+
+import frc.robot.OI;
+
+import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Elevator;
+import frc.robot.subsystems.Wrist;
+import frc.robot.subsystems.Pistons;
 
 /*
  * @Authors
@@ -32,27 +53,19 @@ public class Robot extends IterativeRobot
     public static Elevator elevator = null;
     public static Wrist wrist = null;
     public static Pistons pistons = null;
+    public static DriveTrain drivetrain = null;
     public static OI oi;
 
-    public static double defaultRampRate = 0.2;
-
-
-    public void teleopInit() 
+    @Override
+    public void robotInit()
     {
-        RobotMap._leftFront.configOpenloopRamp(Robot.defaultRampRate, 0);
-		RobotMap._leftFollower.configOpenloopRamp(Robot.defaultRampRate, 0);
-		RobotMap._rghtFront.configOpenloopRamp(Robot.defaultRampRate, 0);
-        RobotMap._rghtFollower.configOpenloopRamp(Robot.defaultRampRate, 0);
+       
     }
 
-    @Override
-    public void teleopPeriodic() 
+    public void teleopPeriodic()
     {
         Scheduler.getInstance().run();
-        System.out.print(UniversalJoystick.aBtnNames);
-        //System.out.print("XXXXXXXXXXXXXXXXXXXXX");
     }
-
 
     public void testPeriodic() 
     {
