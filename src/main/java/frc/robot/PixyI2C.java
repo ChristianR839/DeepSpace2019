@@ -28,7 +28,7 @@ public class PixyI2C {
 	public PixyI2C(I2C argPixy, PixyPacket[] argPixyPacket, PixyException argPixyException, PixyPacket argValues){
 		pixy = argPixy;
 		packets = argPixyPacket;
-		pExc = argPixyException;
+		pExc = argPixyException; 
 		values = argValues;
 	}
 	//This method parses raw data from the pixy into readable integers

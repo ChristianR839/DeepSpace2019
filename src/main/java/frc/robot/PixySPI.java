@@ -93,7 +93,7 @@ public class PixySPI {
 				packet.X = blocks.get(i)[1];
 				packet.Y = blocks.get(i)[2];
 				packet.Width = blocks.get(i)[3];
-				packet.Height = blocks.get(i)[4];
+				packet.Height = blocks.get(i)[4]; 
 
 				if(debug >= 1) {SmartDashboard.putString("Pixy readPackets: Signature: " + Integer.toString(signature), Integer.toString(signature));}
 				if(debug >= 1) {SmartDashboard.putString("Pixy readPackets: " + Integer.toString(signature) + ": X: ", Integer.toString(packet.X));}
