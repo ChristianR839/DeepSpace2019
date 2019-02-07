@@ -9,10 +9,12 @@ package frc.robot;
 
 import frc.robot.Robot;
 
+import com.ctre.phoenix.motorcontrol.GroupMotorControllers;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Compressor;
 
@@ -61,9 +63,24 @@ public class RobotMap
     public static Joystick joystickDrive;
     public static Joystick joystickNum;
 
+ //   public static DifferentialDrive Drive = new DifferentialDrive();
+
+    //WPI_TalonSRX _rghtFront = new WPI_TalonSRX(4);
+    //WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(3);
+    SpeedControllerGroup rightSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
+
+    //WPI_TalonSRX _leftFront = new WPI_TalonSRX(1);
+    //WPI_TalonSRX _leftFollower = new WPI_TalonSRX(2);
+    SpeedControllerGroup leftSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
+
+    DifferentialDrive Drive = new DifferentialDrive(leftSide, rightSide);
+
+
     public static void init()
 	{
 		joystickDrive = new Joystick(0);
-		joystickNum = new Joystick(1);
+        joystickNum = new Joystick(1);
+        
+        
 	}
 }

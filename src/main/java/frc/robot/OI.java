@@ -80,4 +80,14 @@ public class OI
         hatchlowpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
         hatchmidpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
     }
+
+    public double getLeftSpeed()
+    {
+        return joystickDrive.leftAxisY();
+    }
+
+    public double getRightSpeed()
+    {
+        return joystickDrive.rightAxisY();
+    }
 }

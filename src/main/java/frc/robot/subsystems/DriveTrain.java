@@ -7,42 +7,60 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.Robot;
-import frc.robot.RobotMap;
 import frc.robot.DriveWithJoystick;
+import frc.robot.RobotMap;
+
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  * Add your docs here.
  */
-public class DriveTrain extends Subsystem
+public class DriveTrain extends Subsystem 
 {
+  
+  WPI_TalonSRX _rghtFront, _rghtFollower, _leftFront, _leftFollower;
+  SpeedControllerGroup leftSide, rightSide;
+  public static DifferentialDrive drive;
 
-  SpeedController _rghtFront = RobotMap._rghtFront;
-  SpeedController _rghtFollower = RobotMap._rghtFollower;
-  SpeedController _leftFront = RobotMap._leftFront;
-  SpeedController _leftFollower = RobotMap._leftFollower;
-
-  RobotDrive robotDrive = RobotMap.drivetrain;
-
-  public void initDefaultCommand()
+  public void initDefaultCommand() 
   {
     setDefaultCommand(new DriveWithJoystick());
-  }
-
-  public void setDriveSpeeds(double leftForw, double rightForw)
-  {
-        robotDrive.tankDrive(leftForw, rightForw);
-  }
-
         
-  RobotMap.frontLeftMotor.set(ControlMode.PercentOutput, 0);
-  RobotMap.frontRightMotor.set(ControlMode.PercentOutput, 0);
-  RobotMap.backLeftMotor.set(ControlMode.PercentOutput, 0);
-  RobotMap.backRightMotor.set(ControlMode.PercentOutput, 0);
-  public void setDriveSpeeds()
+    RobotMap._rghtFront.set(ControlMode.PercentOutput, 0);
+    RobotMap._rghtFollower.set(ControlMode.PercentOutput, 0);
+    RobotMap._leftFront.set(ControlMode.PercentOutput, 0);
+    RobotMap._leftFollower.set(ControlMode.PercentOutput, 0);
+  }
+
+  public void setDriveSpeeds(double dleft, double dright)
   {
-    RobotMap.robotDrive.drive
+    drive.tankDrive(dleft, dright);
+  }
+
+  public void stop()
+  {
+    RobotMap._rghtFront.set(0);
+    RobotMap._rghtFollower.set(0);
+    RobotMap._leftFront.set(0);
+    RobotMap._leftFollower.set(0);
+  }
+
+  public void DriveTrain()
+  {
+    _rghtFront = new WPI_TalonSRX(4);
+    _rghtFollower = new WPI_TalonSRX(3);
+    _leftFront = new WPI_TalonSRX(1);
+    _leftFollower = new WPI_TalonSRX(2);
+
+    leftSide = new SpeedControllerGroup(_leftFront, _leftFollower);
+    rightSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
+
+    drive = new DifferentialDrive(leftSide, rightSide);
   }
 }
