@@ -12,4 +12,5 @@ Accessories:
 - Elevator
 
 To any other team who may be reading this, good luck this season!
-~839 Programming Team~
+
+839 Programming Team
