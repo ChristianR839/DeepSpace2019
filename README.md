@@ -2,7 +2,8 @@
 FRC 839
 
 Our team's code for the 2019 season
-NOTE: Will be changed and updated throughout the season and the fina version will not be completed until after our last event
+
+NOTE: These files will be changed and updated throughout the season and the fina version will not be completed until after our last event
 
 We use a 4-motor 6-wheel drop center drive train (kit)
 
