@@ -51,10 +51,10 @@ import frc.robot.subsystems.Pistons;
 
 public class Robot extends IterativeRobot
 {
-    public static Intake intake = null;
-    public static Elevator elevator = null;
-    public static Wrist wrist = null;
-    public static Pistons pistons = null;
+    public static Intake intake;
+    public static Elevator elevator;
+    public static Wrist wrist;
+    public static Pistons pistons;
     public static DriveTrain drivetrain;
     public static OI oi;
 
@@ -63,7 +63,7 @@ public class Robot extends IterativeRobot
     @Override
     public void robotInit()
     {
-       
+        drivetrain  = new DriveTrain();
     }
 
     public void teleopPeriodic()

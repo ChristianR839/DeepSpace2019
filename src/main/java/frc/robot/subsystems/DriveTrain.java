@@ -18,31 +18,34 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-/**
+import edu.wpi.first.wpilibj.SpeedController;
+
+/*
  * Add your docs here.
  */
 public class DriveTrain extends Subsystem 
 {
-  
-  WPI_TalonSRX _rghtFront, _rghtFollower, _leftFront, _leftFollower;
   SpeedControllerGroup leftSide, rightSide;
-  public static DifferentialDrive drive;
+  public static DifferentialDrive Drive;
+  RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
+  SpeedController leftDriveControl = RobotMap._leftFront;
+  SpeedController rightDriveControl = RobotMap._rghtFront;
 
   public void initDefaultCommand() 
   {
     setDefaultCommand(new DriveWithJoystick());
         
-    RobotMap._rghtFront.set(ControlMode.PercentOutput, 0);
-    RobotMap._rghtFollower.set(ControlMode.PercentOutput, 0);
-    RobotMap._leftFront.set(ControlMode.PercentOutput, 0);
-    RobotMap._leftFollower.set(ControlMode.PercentOutput, 0);
+    //RobotMap._rghtFront.set(ControlMode.PercentOutput, 0);
+    //RobotMap._rghtFollower.set(ControlMode.PercentOutput, 0);
+    //RobotMap._leftFront.set(ControlMode.PercentOutput, 0);
+    //RobotMap._leftFollower.set(ControlMode.PercentOutput, 0);
   }
 
   public void setDriveSpeeds(double dleft, double dright)
   {
-    drive.tankDrive(dleft, dright);
+    robotDrive.tankDrive(dleft, dright);
   }
-
+  
   public void stop()
   {
     RobotMap._rghtFront.set(0);
@@ -51,16 +54,14 @@ public class DriveTrain extends Subsystem
     RobotMap._leftFollower.set(0);
   }
 
+  /*
   public void DriveTrain()
   {
-    _rghtFront = new WPI_TalonSRX(4);
-    _rghtFollower = new WPI_TalonSRX(3);
-    _leftFront = new WPI_TalonSRX(1);
-    _leftFollower = new WPI_TalonSRX(2);
 
-    leftSide = new SpeedControllerGroup(_leftFront, _leftFollower);
-    rightSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
+    leftSide = new SpeedControllerGroup(RobotMap._leftFront, RobotMap._leftFollower);
+    rightSide = new SpeedControllerGroup(RobotMap._rghtFront, RobotMap._rghtFollower);
 
-    drive = new DifferentialDrive(leftSide, rightSide);
+    Drive = new DifferentialDrive(leftSide, rightSide);
   }
+  */
 }

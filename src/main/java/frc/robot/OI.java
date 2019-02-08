@@ -81,6 +81,11 @@ public class OI
         hatchmidpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
     }
 
+    public UniversalJoystick getJoystickDrive()
+    {
+        return joystickDrive;
+    }
+    
     public double getLeftSpeed()
     {
         return joystickDrive.leftAxisY();
@@ -90,4 +95,12 @@ public class OI
     {
         return joystickDrive.rightAxisY();
     }
+
+    double deadBand(double axisVal) {
+		if (axisVal < -0.150)
+			return axisVal;
+		if (axisVal > +0.150)
+			return axisVal;
+		return 0;
+	}
 }

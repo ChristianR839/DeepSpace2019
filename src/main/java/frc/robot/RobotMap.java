@@ -15,6 +15,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Compressor;
 
@@ -45,6 +46,9 @@ public class RobotMap
     private static final int wristMotorID = 6;
 
 
+    public static RobotDrive drivetrainRobotDrive;
+
+
     public static final WPI_TalonSRX _rghtFront = new WPI_TalonSRX(TalonSRX04ID);
     public static final WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(TalonSRX03ID);
     public static final WPI_TalonSRX _leftFront = new WPI_TalonSRX(TalonSRX01ID);
@@ -63,7 +67,7 @@ public class RobotMap
     public static Joystick joystickDrive;
     public static Joystick joystickNum;
 
- //   public static DifferentialDrive Drive = new DifferentialDrive();
+    //public static DifferentialDrive Drive = new DifferentialDrive();
 
     //WPI_TalonSRX _rghtFront = new WPI_TalonSRX(4);
     //WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(3);
@@ -73,14 +77,14 @@ public class RobotMap
     //WPI_TalonSRX _leftFollower = new WPI_TalonSRX(2);
     SpeedControllerGroup leftSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
 
-    DifferentialDrive Drive = new DifferentialDrive(leftSide, rightSide);
+    DifferentialDrive robotDrive = new DifferentialDrive(leftSide, rightSide);
 
 
     public static void init()
 	{
 		joystickDrive = new Joystick(0);
         joystickNum = new Joystick(1);
-        
-        
+
+        drivetrainRobotDrive = new RobotDrive(_rghtFront, _leftFront);
 	}
 }

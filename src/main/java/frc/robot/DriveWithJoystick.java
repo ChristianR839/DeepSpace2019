@@ -49,7 +49,7 @@ public class DriveWithJoystick extends Command
     public DriveWithJoystick() 
     {
         requires(Robot.drivetrain);
- //       requires(Robot.gyro);
+    //  requires(Robot.gyro);
     }
     
     // Called just before this Command runs the first time
@@ -61,11 +61,8 @@ public class DriveWithJoystick extends Command
     // Called repeatedly when this Command is scheduled to run
     protected void execute() 
     {
-    	//if(Robot.oi.shiftButton.get())
-        //    Robot.drivetrain.setDriveSpeeds(Robot.oi.getStrafeSpeed(), Robot.oi.getSpeed(), Robot.oi.getRotation(), Robot.gyro.getAngle());
-    	//else
-            Robot.drivetrain.setDriveSpeeds(Robot.oi.getLeftSpeed(), Robot.oi.getRightSpeed());
-
+        Robot.drivetrain.setDriveSpeeds(Robot.oi.getLeftSpeed(), Robot.oi.getRightSpeed());
+        System.out.print("XXXXXXXXXXXXXXXXXXXXX");
     }
         
     // Make this return true when this Command no longer needs to run execute()

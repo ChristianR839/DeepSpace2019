@@ -45,7 +45,7 @@ public class IntakeInCommand extends Command
   protected void execute()
   {
     Robot.intake.intake();
-    System.out.print("XXXXXXXXXXXXXXXXXXXXX");
+    
   }
   @Override
   protected boolean isFinished()
