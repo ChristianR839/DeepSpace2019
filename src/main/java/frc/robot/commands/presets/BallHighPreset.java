@@ -7,16 +7,15 @@
 
 package frc.robot.commands.presets;
 
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.ElevatorUpCommand;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
-
-  /*
- * @Authors
- * Christian
- * Jackson
- * FRC 839
- */
+/*
+* @Authors
+* Christian
+* Jackson
+* FRC 839
+*/
 
 public class BallHighPreset extends CommandGroup
 {

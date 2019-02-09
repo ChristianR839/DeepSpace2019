@@ -1,12 +1,11 @@
 package frc.robot.vision;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.SPI.Port;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /* 

@@ -7,17 +7,12 @@
 
 package frc.robot;
 
-import frc.robot.Robot;
-
-import com.ctre.phoenix.motorcontrol.GroupMotorControllers;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /*
  * @Authors
@@ -48,7 +43,6 @@ public class RobotMap
 
     public static RobotDrive drivetrainRobotDrive;
 
-
     public static final WPI_TalonSRX _rghtFront = new WPI_TalonSRX(TalonSRX04ID);
     public static final WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(TalonSRX03ID);
     public static final WPI_TalonSRX _leftFront = new WPI_TalonSRX(TalonSRX01ID);
@@ -71,20 +65,20 @@ public class RobotMap
 
     //WPI_TalonSRX _rghtFront = new WPI_TalonSRX(4);
     //WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(3);
-    SpeedControllerGroup rightSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
+    public static SpeedControllerGroup rightSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
 
     //WPI_TalonSRX _leftFront = new WPI_TalonSRX(1);
     //WPI_TalonSRX _leftFollower = new WPI_TalonSRX(2);
-    SpeedControllerGroup leftSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
+    public static SpeedControllerGroup leftSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
 
-    DifferentialDrive robotDrive = new DifferentialDrive(leftSide, rightSide);
+//DifferentialDrive robotDrive = new DifferentialDrive(leftSide, rightSide);
 
 
-    public static void init()
+    public void init()
 	{
 		joystickDrive = new Joystick(0);
         joystickNum = new Joystick(1);
 
-        drivetrainRobotDrive = new RobotDrive(_rghtFront, _leftFront);
+        //drivetrainRobotDrive = new tankDrive(leftSide, rightSide);
 	}
 }

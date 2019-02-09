@@ -8,7 +8,6 @@ package frc.robot;
 //import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.DigitalInput;
 
 //NOTE: WE MAY NOT END UP USING THIS FILE//
 

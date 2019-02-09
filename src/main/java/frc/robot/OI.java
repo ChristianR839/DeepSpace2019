@@ -7,24 +7,10 @@
 
 package frc.robot;
 
-import frc.robot.commands.ElevatorDownCommand;
-import frc.robot.commands.ElevatorUpCommand;
-import frc.robot.commands.IntakeInCommand;
-import frc.robot.commands.IntakeOutCommand;
-import frc.robot.commands.WristDownCommand;
-import frc.robot.commands.WristUpCommand;
-import frc.robot.commands.PistonsCommand;
-import frc.robot.commands.presets.BallCargoPreset;
-import frc.robot.commands.presets.BallHighPreset;
-import frc.robot.commands.presets.BallLoadPreset;
-import frc.robot.commands.presets.BallLowPreset;
-import frc.robot.commands.presets.BallMidPreset;
-import frc.robot.commands.presets.HatchHighPreset;
-import frc.robot.commands.presets.HatchLowPreset;
-import frc.robot.commands.presets.HatchMidPreset;
-
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.IntakeInCommand;
+import frc.robot.commands.IntakeOutCommand;
 
 /*
  * @Authors
@@ -39,8 +25,8 @@ public class OI
     public UniversalJoystick joystickNum = new UniversalJoystick(1);
     
     public Button elevatorDownButton;
-	public Button elevatorUpButton;
-	public Button intakeInButton;
+    public Button elevatorUpButton;
+    public Button intakeInButton;
     public Button intakeOutButton;
     public Button wristDownButton;
     public Button wristUpButton;

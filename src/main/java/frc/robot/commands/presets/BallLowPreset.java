@@ -7,9 +7,8 @@
 
 package frc.robot.commands.presets;
 
-import frc.robot.commands.ElevatorUpCommand;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.commands.ElevatorUpCommand;
 
 /*
  * @Authors

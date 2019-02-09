@@ -7,29 +7,27 @@
 
 package frc.robot.subsystems;
 
-import frc.robot.DriveWithJoystick;
-import frc.robot.RobotMap;
-
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-
-import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.RobotDrive;
+import frc.robot.RobotMap;
+import frc.robot.Robot;
+import frc.robot.commands.DriveWithJoystick;
 
 /*
  * Add your docs here.
  */
-public class DriveTrain extends Subsystem 
+public class DriveTrain extends Subsystem
 {
-  SpeedControllerGroup leftSide, rightSide;
+  //SpeedControllerGroup leftSide, rightSide;
   public static DifferentialDrive Drive;
   RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
-  SpeedController leftDriveControl = RobotMap._leftFront;
-  SpeedController rightDriveControl = RobotMap._rghtFront;
+  SpeedController leftDriveControl = RobotMap.leftSide;
+  SpeedController rightDriveControl = RobotMap.rightSide;
+
 
   public void initDefaultCommand() 
   {
@@ -55,13 +53,13 @@ public class DriveTrain extends Subsystem
   }
 
   /*
-  public void DriveTrain()
+  public void DriveTrainControl()
   {
+    RobotMap.leftSide = new SpeedControllerGroup(RobotMap._leftFront, RobotMap._leftFollower);
+    RobotMap.rightSide = new SpeedControllerGroup(RobotMap._rghtFront, RobotMap._rghtFollower);
 
-    leftSide = new SpeedControllerGroup(RobotMap._leftFront, RobotMap._leftFollower);
-    rightSide = new SpeedControllerGroup(RobotMap._rghtFront, RobotMap._rghtFollower);
+    Drive = new DifferentialDrive(leftDriveControl, rightDriveControl);
 
-    Drive = new DifferentialDrive(leftSide, rightSide);
   }
   */
 }

@@ -7,40 +7,17 @@
 
 package frc.robot;
 
-import frc.robot.OI;
-
-import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.Elevator;
-import frc.robot.subsystems.Wrist;
-import frc.robot.subsystems.Pistons;
-import frc.robot.subsystems.DriveTrain;
-
-import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.command.Scheduler;
-
-import com.ctre.phoenix.motorcontrol.Faults;
-import com.ctre.phoenix.motorcontrol.InvertType;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
-import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.Robot;
+import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Scheduler;
-
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.IntakeInCommand;
-
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-
-import frc.robot.OI;
-
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Elevator;
-import frc.robot.subsystems.Wrist;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Pistons;
+import frc.robot.subsystems.Wrist;
 
 /*
  * @Authors
@@ -49,7 +26,7 @@ import frc.robot.subsystems.Pistons;
  * FRC 839
  */
 
-public class Robot extends IterativeRobot
+public class Robot extends TimedRobot
 {
     public static Intake intake;
     public static Elevator elevator;
@@ -58,19 +35,57 @@ public class Robot extends IterativeRobot
     public static DriveTrain drivetrain;
     public static OI oi;
 
-    
-   
+    Command autonomousCommand;
+
     @Override
     public void robotInit()
     {
-        drivetrain  = new DriveTrain();
+
     }
 
+    @Override
+    public void robotPeriodic()
+    {
+
+    }
+
+    @Override
+    public void disabledInit() 
+    {
+
+    }
+
+    @Override
+    public void disabledPeriodic() 
+    {
+
+    }
+
+    @Override
+    public void autonomousInit() 
+    {
+        if (autonomousCommand != null) autonomousCommand.start();
+    }
+
+    @Override
+    public void autonomousPeriodic() 
+    {
+        Scheduler.getInstance().run();
+    }
+    
+    @Override
+    public void teleopInit() 
+    {
+        if (autonomousCommand != null) autonomousCommand.cancel();
+    }
+
+    @Override
     public void teleopPeriodic()
     {
         Scheduler.getInstance().run();
     }
 
+    @Override
     public void testPeriodic() 
     {
 
