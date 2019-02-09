@@ -7,14 +7,10 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.RobotDrive;
 import frc.robot.RobotMap;
-import frc.robot.Robot;
 import frc.robot.commands.DriveWithJoystick;
 
 /*
@@ -24,7 +20,7 @@ public class DriveTrain extends Subsystem
 {
   //SpeedControllerGroup leftSide, rightSide;
   public static DifferentialDrive Drive;
-  RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
+  //RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
   SpeedController leftDriveControl = RobotMap.leftSide;
   SpeedController rightDriveControl = RobotMap.rightSide;
 
@@ -41,7 +37,9 @@ public class DriveTrain extends Subsystem
 
   public void setDriveSpeeds(double dleft, double dright)
   {
-    robotDrive.tankDrive(dleft, dright);
+    //robotDrive.tankDrive(dleft, dright);
+    RobotMap.leftSide.set(dleft);
+    RobotMap.rightSide.set(dright);
   }
   
   public void stop()

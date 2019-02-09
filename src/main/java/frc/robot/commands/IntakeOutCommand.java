@@ -19,11 +19,6 @@ import frc.robot.Robot;
 
 public class IntakeOutCommand extends Command
 {
-
-  private static final double DEFAULT_SPEED = 0.5;
-  private static double outtakeSpeed = DEFAULT_SPEED;
-	private String side;
-
   public IntakeOutCommand(double duration)
     {
     	this.setTimeout(duration);
@@ -33,14 +28,6 @@ public class IntakeOutCommand extends Command
   public IntakeOutCommand()
   {
     requires(Robot.intake);
-  }
-
-  public IntakeOutCommand(double duration, String side)
-  {
-    this.side = side;
-    this.setTimeout(duration);
-    requires(Robot.intake);
-    
   }
 
   @Override
@@ -65,8 +52,6 @@ public class IntakeOutCommand extends Command
   protected void end()
   {
     Robot.intake.stop();
-    this.side = null;
-    outtakeSpeed = DEFAULT_SPEED;
   }
 
   @Override

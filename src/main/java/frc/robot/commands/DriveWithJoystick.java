@@ -2,7 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.OI;
+import frc.robot.RobotMap;
 
 public class DriveWithJoystick extends Command
 {
@@ -22,7 +22,8 @@ public class DriveWithJoystick extends Command
     protected void execute()
     {
         Robot.drivetrain.setDriveSpeeds(Robot.oi.getLeftSpeed(), Robot.oi.getRightSpeed());
-        System.out.println(Robot.oi.joystickDrive.getRawAxis(1));
+        //System.out.println(Robot.oi.joystickDrive.getRawAxis(1));
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
