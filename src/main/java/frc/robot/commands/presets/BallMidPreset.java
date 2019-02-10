@@ -23,4 +23,4 @@ public class BallMidPreset extends CommandGroup
   {
     addSequential(new ElevatorUpCommand(19399.23214285714f));
   }
-}
+} 

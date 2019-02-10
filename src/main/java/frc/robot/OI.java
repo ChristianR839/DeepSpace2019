@@ -22,7 +22,7 @@ import frc.robot.commands.IntakeOutCommand;
 public class OI
 {
     public UniversalJoystick joystickDrive = new UniversalJoystick(0);
-    public UniversalJoystick joystickNum = new UniversalJoystick(1);
+    /*public UniversalJoystick joystickNum = new UniversalJoystick(1);
     
     public Button elevatorDownButton;
     public Button elevatorUpButton;
@@ -39,39 +39,39 @@ public class OI
     public Button hatchhighpresetbutton;
     public Button hatchlowpresetbutton;
     public Button hatchmidpresetbutton;
-
+*/
     public OI()
     {
-        elevatorDownButton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
-        elevatorUpButton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        //elevatorDownButton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        //elevatorUpButton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
         
-        intakeInButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnLB);
-        intakeOutButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnRB);
+        //intakeInButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnLB);
+        //intakeOutButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnRB);
 
-        intakeInButton.whileHeld(new IntakeInCommand());
-    	intakeOutButton.whileHeld(new IntakeOutCommand());
+        //intakeInButton.whileHeld(new IntakeInCommand());
+    	//intakeOutButton.whileHeld(new IntakeOutCommand());
 
-        wristDownButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
-        wristUpButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
+        //wristDownButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
+        //wristUpButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
 
-        pistonsButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnB);
+        //pistonsButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnB);
 
-        ballcargopresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
-        ballhighpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
-        ballloadpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
-        balllowpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
-        ballmidpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        //ballcargopresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        //ballhighpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        //ballloadpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        //balllowpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        //ballmidpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
 
-        hatchhighpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
-        hatchlowpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
-        hatchmidpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        //hatchhighpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        //hatchlowpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        //hatchmidpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
     }
-
+/*
     public UniversalJoystick getJoystickDrive()
     {
         return joystickDrive;
     }
-    
+    */
     public double getLeftSpeed()
     {
         return joystickDrive.leftAxisY();
@@ -88,5 +88,5 @@ public class OI
 		if (axisVal > +0.150)
 			return axisVal;
 		return 0;
-	}
+    }
 }

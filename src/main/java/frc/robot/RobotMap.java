@@ -25,10 +25,10 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class RobotMap
 {
-    private static final int TalonSRX04ID = 4;  //Right Front
-    private static final int TalonSRX03ID = 3;  //Right Follower (Back)
-    private static final int TalonSRX01ID = 1;  //Left Front
-    private static final int TalonSRX02ID = 2;  //Left Follower (Back)
+    //private static final int TalonSRX04ID = 4;  //Right Front
+    //private static final int TalonSRX03ID = 3;  //Right Follower (Back)
+    //private static final int TalonSRX01ID = 1;  //Left Front
+    //private static final int TalonSRX02ID = 2;  //Left Follower (Back)
 
     private static final int elevatorMotorID = 69;
     private static final int elevatorMotorFollowerID = 69;
@@ -43,10 +43,10 @@ public class RobotMap
 
     public static RobotDrive drivetrainRobotDrive;
 
-    public static final WPI_TalonSRX _rghtFront = new WPI_TalonSRX(TalonSRX04ID);
-    public static final WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(TalonSRX03ID);
-    public static final WPI_TalonSRX _leftFront = new WPI_TalonSRX(TalonSRX01ID);
-    public static final WPI_TalonSRX _leftFollower = new WPI_TalonSRX(TalonSRX02ID);
+    //public static final WPI_TalonSRX _rghtFront    = new WPI_TalonSRX(TalonSRX04ID);
+    //public static final WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(TalonSRX03ID);
+    //public static final WPI_TalonSRX _leftFront    = new WPI_TalonSRX(TalonSRX01ID);
+    //public static final WPI_TalonSRX _leftFollower = new WPI_TalonSRX(TalonSRX02ID);
 
     public static final WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(elevatorMotorID);
     public static final WPI_TalonSRX elevatorMotorFollower = new WPI_TalonSRX(elevatorMotorFollowerID);
@@ -65,11 +65,11 @@ public class RobotMap
 
     //WPI_TalonSRX _rghtFront = new WPI_TalonSRX(4);
     //WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(3);
-    public static SpeedControllerGroup rightSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
+    //public static SpeedControllerGroup rightSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
 
     //WPI_TalonSRX _leftFront = new WPI_TalonSRX(1);
     //WPI_TalonSRX _leftFollower = new WPI_TalonSRX(2);
-    public static SpeedControllerGroup leftSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
+    //public static SpeedControllerGroup leftSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
 
 //DifferentialDrive robotDrive = new DifferentialDrive(leftSide, rightSide);
 

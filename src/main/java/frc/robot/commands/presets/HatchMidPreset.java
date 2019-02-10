@@ -19,7 +19,7 @@ import frc.robot.commands.ElevatorUpCommand;
 
 public class HatchMidPreset extends CommandGroup
 {
-  public HatchMidPreset()
+  public HatchMidPreset() 
   {
     addSequential(new ElevatorUpCommand(16428.17857142857f));
   }

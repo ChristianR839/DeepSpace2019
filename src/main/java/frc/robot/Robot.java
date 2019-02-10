@@ -40,7 +40,12 @@ public class Robot extends TimedRobot
     @Override
     public void robotInit()
     {
-
+        drivetrain = new DriveTrain();
+        //intake = new Intake();
+        //elevator = new Elevator();
+        //wrist = new Wrist();
+        //pistons = new Pistons();
+        oi = new OI();
     }
 
     @Override

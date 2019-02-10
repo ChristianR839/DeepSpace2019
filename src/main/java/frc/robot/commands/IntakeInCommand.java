@@ -19,7 +19,7 @@ import frc.robot.Robot;
 
 public class IntakeInCommand extends Command
 {
-  
+   
   double power = 1;
   double maxCurrent = 0;
   
