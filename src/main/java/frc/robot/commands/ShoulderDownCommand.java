@@ -4,7 +4,6 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -17,11 +16,11 @@ import frc.robot.Robot;
  * FRC 839
  */
 
-public class IntakeInCommand extends Command
+public class ShoulderDownCommand extends Command
 {
-  public IntakeInCommand()
+  public ShoulderDownCommand()
   {
-    requires(Robot.intake);
+    requires(Robot.shoulder);
   }
 
   @Override
@@ -33,7 +32,7 @@ public class IntakeInCommand extends Command
   @Override
   protected void execute()
   {
-    Robot.intake.intake();
+    Robot.shoulder.down();
   }
 
   @Override
@@ -45,6 +44,6 @@ public class IntakeInCommand extends Command
   @Override
   protected void end()
   {
-    Robot.intake.stop();
+    Robot.shoulder.stop();
   }
 }

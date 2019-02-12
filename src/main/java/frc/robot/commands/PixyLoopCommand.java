@@ -8,20 +8,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Robot;
+import frc.*;
 
-/*
- * @Authors
- * Christian
- * Jackson
- * FRC 839
- */
-
-public class IntakeInCommand extends Command
+public class PixyLoopCommand extends Command
 {
-  public IntakeInCommand()
+  public PixyLoopCommand()
   {
-    requires(Robot.intake);
+
   }
 
   @Override
@@ -33,18 +26,24 @@ public class IntakeInCommand extends Command
   @Override
   protected void execute()
   {
-    Robot.intake.intake();
+
   }
 
   @Override
   protected boolean isFinished()
   {
-    return this.isTimedOut();
+    return false;
   }
 
   @Override
   protected void end()
   {
-    Robot.intake.stop();
+
+  }
+
+  @Override
+  protected void interrupted()
+  {
+
   }
 }

@@ -9,7 +9,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 import frc.robot.subsystems.Elevator;
 
 /*
@@ -21,21 +20,12 @@ import frc.robot.subsystems.Elevator;
 
 public class ElevatorUpCommand extends Command
 {
-
-  double power = 1;
-
 	private double height = 0;
 
   public ElevatorUpCommand(double height)
   {
     this.height = Elevator.getTicks(height);
-    	this.power = 1;
     	requires(Robot.elevator);
-  }
-
-  public ElevatorUpCommand()
-  {
-    requires(Robot.elevator);
   }
 
   @Override
@@ -48,13 +38,13 @@ public class ElevatorUpCommand extends Command
   protected void execute()
   {
     Robot.elevator.raise();
-    System.out.println(RobotMap.elevatorMotor.getSelectedSensorPosition(0));
+    System.out.println(Elevator.elevatorMotor.getSelectedSensorPosition(0));
   }
 
   @Override
   protected boolean isFinished() 
   {
-    int encoderPosition = RobotMap.elevatorMotor.getSelectedSensorPosition(0);
+    int encoderPosition = Elevator.elevatorMotor.getSelectedSensorPosition(0);
     return encoderPosition >= 28500 || this.isTimedOut() || (this.height > 0 && encoderPosition >= this.height);
   }
 

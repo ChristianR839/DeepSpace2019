@@ -8,7 +8,9 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 
 /*
  * @Authors
@@ -19,6 +21,18 @@ import frc.robot.RobotMap;
 
 public class Shoulder extends Subsystem
 {
+  private static final int leftID = 7;
+  private static final int followerID = 8;
+  private SpeedControllerGroup shoulderMotorGroup;
+
+  public Shoulder()
+  {
+  final WPI_TalonSRX shoulderMotor = new WPI_TalonSRX(leftID);
+  final WPI_TalonSRX shoulderMotorFollower = new WPI_TalonSRX(followerID);
+
+  shoulderMotorGroup = new SpeedControllerGroup(shoulderMotor, shoulderMotorFollower);
+  }
+  
   @Override
   public void initDefaultCommand()
   {
@@ -27,19 +41,17 @@ public class Shoulder extends Subsystem
   
   public void up()
   {
-    RobotMap.shoulderMotor.set(1);
-    RobotMap.shoulderMotorFollower.set(1);
+    shoulderMotorGroup.set(1);
+   
   }
   
   public void down()
   {
-    RobotMap.shoulderMotor.set(-1);
-    RobotMap.shoulderMotorFollower.set(-1);
+    shoulderMotorGroup.set(-1);
   }
   
   public void stop()
   {
-    RobotMap.shoulderMotor.set(0);
-    RobotMap.shoulderMotorFollower.set(0);
+    shoulderMotorGroup.set(0);
   }
 }

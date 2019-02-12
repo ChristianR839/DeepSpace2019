@@ -18,11 +18,9 @@ import frc.robot.Robot;
 
 public class WristDownCommand extends Command
 {
-  double power = 1;
 
-  public WristDownCommand(double duration)
+  public WristDownCommand()
     {
-    	this.setTimeout(duration);
     	requires(Robot.wrist);
     }
 
@@ -47,7 +45,7 @@ public class WristDownCommand extends Command
   @Override
   protected void end()
   {
-    Robot.wrist.down();
+    Robot.wrist.stop();
   }
 
   @Override

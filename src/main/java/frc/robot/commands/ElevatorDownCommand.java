@@ -9,7 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
+import frc.robot.subsystems.Elevator;
 
 /*
  * @Authors
@@ -20,15 +20,6 @@ import frc.robot.RobotMap;
 
 public class ElevatorDownCommand extends Command
 {
-
-  double power = -1;
-
-  public ElevatorDownCommand(double duration)
-  {
-    this.setTimeout(duration);
-    this.power = -1;
-    requires(Robot.elevator);
-  }
 
   public ElevatorDownCommand()
   {
@@ -50,7 +41,7 @@ public class ElevatorDownCommand extends Command
   @Override
   protected boolean isFinished()
   {
-    return RobotMap.elevatorMotor.getSelectedSensorPosition(0) < 100 || this.isTimedOut();
+    return Elevator.elevatorMotor.getSelectedSensorPosition(0) < 100 || this.isTimedOut();
   }
 
   @Override

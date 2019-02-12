@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 /*
  * @Authors
@@ -19,25 +19,34 @@ import frc.robot.RobotMap;
 
 public class Intake extends Subsystem
 {
+
+  private static final int intakeMotorID = 5;
+  private final WPI_TalonSRX intakeMotor;
+
   @Override
   public void initDefaultCommand()
   {
     
   }
 
+  public Intake()
+  {
+    intakeMotor = new WPI_TalonSRX(intakeMotorID);
+    intakeMotor.configFactoryDefault();
+  }
+
   public void intake()
 	{
-    RobotMap.intakeMotor.set(.6);
-    //System.out.print("XXXXXXXXXXXXXXXXXXXXX");
+    intakeMotor.set(1);
   }
   
   public void outtake()
 	{
-		RobotMap.intakeMotor.set(-.6);
+		intakeMotor.set(-1.0);
   }
   
   public void stop()
 	{
-		RobotMap.intakeMotor.set(0);
+		intakeMotor.stopMotor();
 	}
 }

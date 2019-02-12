@@ -7,7 +7,7 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /*
@@ -20,25 +20,27 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Pistons extends Subsystem
 {
 
+  //private static final int solenoidNumber = 7;
+  //private final Solenoid pistonsSolenoid;
+
+  public Pistons()
+  {
+    //pistonsSolenoid = new Solenoid(solenoidNumber);
+  }
+
   @Override
   public void initDefaultCommand()
   {
-    DoubleSolenoid pistonDouble = new DoubleSolenoid(1, 2);
-
-    pistonDouble.set(DoubleSolenoid.Value.kOff);
-    pistonDouble.set(DoubleSolenoid.Value.kForward);
-    pistonDouble.set(DoubleSolenoid.Value.kReverse);
     
   }
 
   public void push()
 	{
-    
-		//RobotMap.'solenoid_name'.set(.6);
+    //pistonsSolenoid.set(true);
   }
 
   public void release()
 	{
-		//RobotMap.'solenoid_name'.set(.6);
+		//pistonsSolenoid.set(false);
   }
 }

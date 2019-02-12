@@ -8,9 +8,9 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
 
 /*
  * @Authors
@@ -22,6 +22,12 @@ import frc.robot.RobotMap;
 public class Elevator extends Subsystem
 {
 
+  private static final int elevatorMotorID = 9;
+  private static final int elevatorMotorFollowerID = 10;
+
+  public static WPI_TalonSRX elevatorMotor;
+  public static WPI_TalonSRX elevatorMotorFollower;
+
   public static double ticksPerInch = 349.5357142857143;
 
 	public static double getTicks(double height)
@@ -32,22 +38,29 @@ public class Elevator extends Subsystem
   @Override
   public void initDefaultCommand()
     {
-      RobotMap.elevatorMotorFollower.set(ControlMode.Follower,RobotMap.elevatorMotor.getDeviceID());
-      RobotMap.elevatorMotor.configOpenloopRamp(.5, 0);
+
     }
+
+  public Elevator()
+  {
+    final WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(elevatorMotorID);
+    final WPI_TalonSRX elevatorMotorFollower = new WPI_TalonSRX(elevatorMotorFollowerID);
+    elevatorMotorFollower.set(ControlMode.Follower,elevatorMotor.getDeviceID());
+    elevatorMotor.configOpenloopRamp(.5, 0);
+  }
 
   public void raise()
     {
-      RobotMap.elevatorMotor.set(1);
+      elevatorMotor.set(1);
     }
 
   public void lower()
     {
-      RobotMap.elevatorMotor.set(-1);
+      elevatorMotor.set(-1);
     }
 
   public void stop()
     {
-      RobotMap.elevatorMotor.set(0);
+      elevatorMotor.set(0);
     }
 }

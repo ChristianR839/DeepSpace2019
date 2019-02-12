@@ -19,10 +19,10 @@ public class PixyI2C {
 	PixyException pExc;
 	String print;
 	public PixyI2C() {
-//		pixy = new I2C(port, 0x54);
-//		packets = new PixyPacket[7];
-//		pExc = new PixyException(print);
-//		values = new PixyPacket();
+		pixy = new I2C(port, 0x54);
+		packets = new PixyPacket[7];
+		pExc = new PixyException(print);
+		values = new PixyPacket();
 	}
 	public PixyI2C(I2C argPixy, PixyPacket[] argPixyPacket, PixyException argPixyException, PixyPacket argValues){
 		pixy = argPixy;

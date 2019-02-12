@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 /*
  * @Authors
@@ -19,24 +19,34 @@ import frc.robot.RobotMap;
 
 public class Wrist extends Subsystem
 {
+
+  private static final int wristMotorID = 6;
+  private final WPI_TalonSRX wristMotor;
+
   @Override
   public void initDefaultCommand()
   {
     
   }
 
+  public Wrist()
+  {
+    wristMotor = new WPI_TalonSRX(wristMotorID);
+    wristMotor.configFactoryDefault();
+  }
+
   public void up()
-  {
-    RobotMap.wristMotor.set(1);
+	{
+    wristMotor.set(1);
   }
-
+  
   public void down()
-  {
-    RobotMap.wristMotor.set(-1);
+	{
+		wristMotor.set(-1.0);
   }
-
+  
   public void stop()
-  {
-    RobotMap.wristMotor.set(0);
-  }
+	{
+		wristMotor.stopMotor();
+	}
 }

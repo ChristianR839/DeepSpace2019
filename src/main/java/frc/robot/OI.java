@@ -9,8 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.IntakeInCommand;
-import frc.robot.commands.IntakeOutCommand;
+import frc.robot.commands.*;
 
 /*
  * @Authors
@@ -22,39 +21,47 @@ import frc.robot.commands.IntakeOutCommand;
 public class OI
 {
     public UniversalJoystick joystickDrive = new UniversalJoystick(0);
-    /*public UniversalJoystick joystickNum = new UniversalJoystick(1);
+    //public UniversalJoystick joystickNum = new UniversalJoystick(1);
     
-    public Button elevatorDownButton;
-    public Button elevatorUpButton;
+    //public Button elevatorDownButton;
+    //public Button elevatorUpButton;
     public Button intakeInButton;
     public Button intakeOutButton;
-    public Button wristDownButton;
-    public Button wristUpButton;
+    public Button shoulderUpButton;
+    public Button shoulderDownButton;
+    // public Button wristDownButton;
+    // public Button wristUpButton;
     public Button pistonsButton;
-    public Button ballcargopresetbutton;
-    public Button ballhighpresetbutton;
-    public Button ballloadpresetbutton;
-    public Button balllowpresetbutton;
-    public Button ballmidpresetbutton;
-    public Button hatchhighpresetbutton;
-    public Button hatchlowpresetbutton;
-    public Button hatchmidpresetbutton;
-*/
+    // public Button ballcargopresetbutton;
+    // public Button ballhighpresetbutton;
+    // public Button ballloadpresetbutton;
+    // public Button balllowpresetbutton;
+    // public Button ballmidpresetbutton;
+    // public Button hatchhighpresetbutton;
+    // public Button hatchlowpresetbutton;
+    // public Button hatchmidpresetbutton;
+
     public OI()
     {
         //elevatorDownButton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
         //elevatorUpButton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
         
-        //intakeInButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnLB);
-        //intakeOutButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnRB);
+        intakeInButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnLB);
+        intakeOutButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnRB);
 
-        //intakeInButton.whileHeld(new IntakeInCommand());
-    	//intakeOutButton.whileHeld(new IntakeOutCommand());
+        intakeInButton.whileHeld(new IntakeInCommand());
+        intakeOutButton.whileHeld(new IntakeOutCommand());
+        
+        shoulderUpButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
+        shoulderDownButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnY);
+
+        shoulderUpButton.whileHeld(new ShoulderUpCommand());
+    	shoulderDownButton.whileHeld(new ShoulderDownCommand());
 
         //wristDownButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
         //wristUpButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
 
-        //pistonsButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnB);
+        pistonsButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnB);
 
         //ballcargopresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
         //ballhighpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);

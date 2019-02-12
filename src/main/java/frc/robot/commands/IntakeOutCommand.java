@@ -19,12 +19,6 @@ import frc.robot.Robot;
 
 public class IntakeOutCommand extends Command
 {
-  public IntakeOutCommand(double duration)
-    {
-    	this.setTimeout(duration);
-    	requires(Robot.intake);
-    }
-  
   public IntakeOutCommand()
   {
     requires(Robot.intake);
@@ -52,11 +46,5 @@ public class IntakeOutCommand extends Command
   protected void end()
   {
     Robot.intake.stop();
-  }
-
-  @Override
-  protected void interrupted()
-  {
-    end();
   }
 }

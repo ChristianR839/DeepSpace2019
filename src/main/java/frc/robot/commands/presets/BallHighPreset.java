@@ -21,6 +21,8 @@ public class BallHighPreset extends CommandGroup
 {
   public BallHighPreset()
   {
+
+  //in inches
     addSequential(new ElevatorUpCommand(29186.23214285714f));
   }
 }

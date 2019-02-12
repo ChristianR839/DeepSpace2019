@@ -19,22 +19,21 @@ import frc.robot.Robot;
 
 public class PistonsCommand extends Command
 {
-  public PistonsCommand(double duration)
+  public PistonsCommand()
   {
-    this.setTimeout(duration);
     requires(Robot.pistons);
   }
 
   @Override
   protected void initialize()
   {
-
+    Robot.pistons.push();
   }
 
   @Override
   protected void execute()
   {
-    Robot.pistons.push();
+    
   }
 
   @Override
@@ -47,11 +46,5 @@ public class PistonsCommand extends Command
   protected void end()
   {
     Robot.pistons.release();
-  }
-
-  @Override
-  protected void interrupted()
-  {
-    end();
   }
 }
