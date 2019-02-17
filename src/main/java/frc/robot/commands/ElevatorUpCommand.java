@@ -20,12 +20,9 @@ import frc.robot.subsystems.Elevator;
 
 public class ElevatorUpCommand extends Command
 {
-	private double height = 0;
-
-  public ElevatorUpCommand(double height)
+  public ElevatorUpCommand()
   {
-    this.height = Elevator.getTicks(height);
-    	requires(Robot.elevator);
+    requires(Robot.elevator);
   }
 
   @Override
@@ -38,14 +35,12 @@ public class ElevatorUpCommand extends Command
   protected void execute()
   {
     Robot.elevator.raise();
-    System.out.println(Elevator.elevatorMotor.getSelectedSensorPosition(0));
   }
 
   @Override
   protected boolean isFinished() 
   {
-    int encoderPosition = Elevator.elevatorMotor.getSelectedSensorPosition(0);
-    return encoderPosition >= 28500 || this.isTimedOut() || (this.height > 0 && encoderPosition >= this.height);
+    return false;
   }
 
   @Override

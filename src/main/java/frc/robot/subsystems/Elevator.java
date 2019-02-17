@@ -9,8 +9,11 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /*
  * @Authors
@@ -25,28 +28,82 @@ public class Elevator extends Subsystem
   private static final int elevatorMotorID = 9;
   private static final int elevatorMotorFollowerID = 10;
 
-  public static WPI_TalonSRX elevatorMotor;
-  public static WPI_TalonSRX elevatorMotorFollower;
+  public final WPI_TalonSRX elevatorMotor;
+  public final WPI_TalonSRX elevatorMotorFollower;
 
-  public static double ticksPerInch = 349.5357142857143;
+  public final static int ticksPerRevolution = 4096;
+  public final static double sprkCircumference = 2 * Math.PI * 1.0; // FIX ME
+  public final static int tolerance = getRawSensorValueFromInches(0.5);
+  public final static double minimumHeight = 0;
+  public final static double maximumHeight = 36;
 
-	public static double getTicks(double height)
-	{
-		return height * ticksPerInch;
-	}
+  private static final int getRawSensorValueFromInches(double inches)
+  {
+    double revs = inches / sprkCircumference;
+    int ticks = (int) (revs * ticksPerRevolution);
+    return ticks;
+  }
 
-  @Override
-  public void initDefaultCommand()
-    {
-
-    }
+  private static final double getInchesFromRawSensorValue(int ticks)
+  {
+    double revs = ticks / ticksPerRevolution;
+    double inches = revs * sprkCircumference;
+    return inches;
+  }
 
   public Elevator()
   {
-    final WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(elevatorMotorID);
-    final WPI_TalonSRX elevatorMotorFollower = new WPI_TalonSRX(elevatorMotorFollowerID);
+    elevatorMotor = new WPI_TalonSRX(elevatorMotorID);
+    elevatorMotorFollower = new WPI_TalonSRX(elevatorMotorFollowerID);
+
+    elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+
+    elevatorMotor.configForwardSoftLimitThreshold(getRawSensorValueFromInches(maximumHeight));
+    elevatorMotor.configForwardSoftLimitEnable(true);
+    elevatorMotor.configReverseSoftLimitThreshold(getRawSensorValueFromInches(minimumHeight));
+    elevatorMotor.configReverseSoftLimitEnable(true);
+
     elevatorMotorFollower.set(ControlMode.Follower,elevatorMotor.getDeviceID());
-    elevatorMotor.configOpenloopRamp(.5, 0);
+  }
+
+  @Override
+  public void initDefaultCommand()
+  {
+    
+  }
+
+  /**
+   * Get the height of the elevator in inches.
+   */
+  public double getHeight()
+  {
+    int ticks = elevatorMotor.getSelectedSensorPosition();
+    double inches = getInchesFromRawSensorValue(ticks);
+    return inches;
+  }
+
+  /**
+   * Tell the elevator how high to go in inches
+   */
+  public void setHeight(double inches)
+  {
+    elevatorMotor.set(ControlMode.MotionMagic, getRawSensorValueFromInches(inches));
+  }
+
+  /**
+   * Checks to see if the elevator is at/near its target
+   * If it is not on target return False
+   */
+  public boolean isOnTarget()
+  {
+    // What is our error?
+    // error = goal - current
+    double error = elevatorMotor.getClosedLoopTarget() - elevatorMotor.getSelectedSensorPosition();
+    // Are we within an acceptable range?
+    // abs(error) - tol. <= 0
+    boolean onTarget = Math.abs(error) - tolerance <= 0;
+    // Return if we are on target
+    return onTarget;
   }
 
   public void raise()
@@ -63,4 +120,9 @@ public class Elevator extends Subsystem
     {
       elevatorMotor.set(0);
     }
+
+  public void updateSmartDashboard()
+  {
+    SmartDashboard.putNumber("ElevatorHeight", getHeight());
+  }
 }

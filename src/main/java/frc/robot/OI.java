@@ -21,10 +21,11 @@ import frc.robot.commands.*;
 public class OI
 {
     public UniversalJoystick joystickDrive = new UniversalJoystick(0);
-    //public UniversalJoystick joystickNum = new UniversalJoystick(1);
+    public UniversalJoystick joystickAccessory = new UniversalJoystick(1);
+    //public UniversalJoystick joystickNum = new UniversalJoystick(1);6
     
-    //public Button elevatorDownButton;
-    //public Button elevatorUpButton;
+    public Button elevatorDownButton;
+    public Button elevatorUpButton;
     public Button intakeInButton;
     public Button intakeOutButton;
     public Button shoulderUpButton;
@@ -43,8 +44,11 @@ public class OI
 
     public OI()
     {
-        //elevatorDownButton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
-        //elevatorUpButton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
+        elevatorDownButton = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnX);
+        elevatorUpButton = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnY);
+
+        elevatorDownButton.whenPressed(new ElevatorMoveCommand(0));
+        elevatorUpButton.whenPressed(new ElevatorMoveCommand(10));
         
         intakeInButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnLB);
         intakeOutButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnRB);

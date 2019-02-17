@@ -9,50 +9,29 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.Elevator;
 
-/*
- * @Authors
- * Christian
- * Jackson
- * FRC 839
- */
-
-public class ElevatorDownCommand extends Command
+public class ElevatorMoveCommand extends Command
 {
 
-  public ElevatorDownCommand()
+  private final double goal;
+
+  public ElevatorMoveCommand(double goal)
   {
     requires(Robot.elevator);
+    this.goal = goal;
   }
 
+  // Called just before this Command runs the first time
   @Override
   protected void initialize()
   {
-
+    Robot.elevator.setHeight(goal);
   }
 
-  @Override
-  protected void execute()
-  {
-    Robot.elevator.lower();
-  }
-
+  // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished()
   {
-    return false;
-  }
-
-  @Override
-  protected void end()
-  {
-    Robot.elevator.stop();
-  }
-
-  @Override
-  protected void interrupted()
-  {
-    end(); 
+    return Robot.elevator.isOnTarget();
   }
 }
