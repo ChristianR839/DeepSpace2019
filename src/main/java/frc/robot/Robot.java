@@ -16,9 +16,13 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Pistons;
 import frc.robot.subsystems.Shoulder;
 import frc.robot.subsystems.Wrist;
-import frc.robot.vision.PixyException;
-import frc.robot.vision.PixyI2C;
-
+import frc.robot.vision.Pixy2;
+import frc.robot.vision.Pixy2.LinkType;
+import frc.robot.vision.Pixy2CCC;
+import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.SPI.Port;
+import java.util.ArrayList;
+import java.util.HashMap;
 /*
  * @Authors
  * Christian
@@ -35,23 +39,25 @@ public class Robot extends TimedRobot
     public static DriveTrain drivetrain;
     public static OI oi;
     public static Shoulder shoulder;
-    public static PixyI2C pixyi2c;
+    public static Pixy2 pixy;
+
+    private int counter = 0;
 
     Command autonomousCommand;
 
     @Override
     public void robotInit()
     {
+
         drivetrain = new DriveTrain();
         intake = new Intake();
         elevator = new Elevator();
         wrist = new Wrist();
         shoulder = new Shoulder();
         pistons = new Pistons();
-        pixyi2c = new PixyI2C();
+        pixy = Pixy2.createInstance(LinkType.SPI);
+        pixy.init(0);
         oi = new OI();
-    
-
     }
 
     @Override
@@ -82,6 +88,8 @@ public class Robot extends TimedRobot
     public void autonomousPeriodic() 
     {
         Scheduler.getInstance().run();
+        Pixy2CCC ccc = pixy.getCCC();
+        ccc.getBlocks();
     }
     
     @Override
@@ -94,15 +102,6 @@ public class Robot extends TimedRobot
     public void teleopPeriodic()
     {
         Scheduler.getInstance().run();
-        
-        try
-        {
-            pixyi2c.readPacket(1);
-        }
-        catch (PixyException p)
-        {
-            System.out.println("ERROR: PixyException");
-        }
     }
 
     @Override

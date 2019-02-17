@@ -22,7 +22,6 @@ public class DriveWithJoystick extends Command
     {
         Robot.drivetrain.setDriveSpeeds(Robot.oi.getLeftSpeed(), Robot.oi.getRightSpeed());
         //System.out.println(Robot.oi.joystickDrive.getRawAxis(1));
-        
     }
 
     // Make this return true when this Command no longer needs to run execute()
