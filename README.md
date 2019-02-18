@@ -12,6 +12,8 @@ Accessories:
 - Wrist / Shoulder (two diffrerent components)
 - Elevator
 
+Thank you to Austin and Brent for helping us write these files
+
 To any other team who may be reading this, good luck this season!
 
 839 Programming Team
