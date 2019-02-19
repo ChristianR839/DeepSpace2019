@@ -20,7 +20,7 @@ public class DriveWithJoystick extends Command
     // Called repeatedly when this Command is scheduled to run
     protected void execute()
     {
-        Robot.drivetrain.setDriveSpeeds(Robot.oi.getLeftSpeed(), Robot.oi.getRightSpeed());
+        Robot.drivetrain.setDriveSpeeds(Robot.oi.getRightSpeed(), Robot.oi.getLeftSpeed());
         //System.out.println(Robot.oi.joystickDrive.getRawAxis(1));
     }
 

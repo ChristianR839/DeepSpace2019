@@ -25,14 +25,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Elevator extends Subsystem
 {
 
-  private static final int elevatorMotorID = 9;
-  private static final int elevatorMotorFollowerID = 10;
+  private static final int elevatorMotorID = 7;
+  private static final int elevatorMotorFollowerID = 8;
 
   public final WPI_TalonSRX elevatorMotor;
   public final WPI_TalonSRX elevatorMotorFollower;
 
   public final static int ticksPerRevolution = 4096;
-  public final static double sprkCircumference = 2 * Math.PI * 1.0; // FIX ME
+  public final static double sprkCircumference = 2 * Math.PI * 0.895; // Diameter 1.790
   public final static int tolerance = getRawSensorValueFromInches(0.5);
   public final static double minimumHeight = 0;
   public final static double maximumHeight = 36;
@@ -56,14 +56,18 @@ public class Elevator extends Subsystem
     elevatorMotor = new WPI_TalonSRX(elevatorMotorID);
     elevatorMotorFollower = new WPI_TalonSRX(elevatorMotorFollowerID);
 
-    elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+    elevatorMotorFollower.setInverted(true);
 
-    elevatorMotor.configForwardSoftLimitThreshold(getRawSensorValueFromInches(maximumHeight));
-    elevatorMotor.configForwardSoftLimitEnable(true);
-    elevatorMotor.configReverseSoftLimitThreshold(getRawSensorValueFromInches(minimumHeight));
-    elevatorMotor.configReverseSoftLimitEnable(true);
+    // elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+
+    // elevatorMotor.configForwardSoftLimitThreshold(getRawSensorValueFromInches(maximumHeight));
+    // elevatorMotor.configForwardSoftLimitEnable(true);
+    // elevatorMotor.configReverseSoftLimitThreshold(getRawSensorValueFromInches(minimumHeight));
+    // elevatorMotor.configReverseSoftLimitEnable(true);
 
     elevatorMotorFollower.set(ControlMode.Follower,elevatorMotor.getDeviceID());
+
+    System.out.println("elevator const");
   }
 
   @Override
@@ -87,7 +91,7 @@ public class Elevator extends Subsystem
    */
   public void setHeight(double inches)
   {
-    elevatorMotor.set(ControlMode.MotionMagic, getRawSensorValueFromInches(inches));
+    // elevatorMotor.set(ControlMode.MotionMagic, getRawSensorValueFromInches(inches));
   }
 
   /**

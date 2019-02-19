@@ -44,11 +44,14 @@ public class OI
 
     public OI()
     {
-        elevatorDownButton = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnX);
-        elevatorUpButton = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnY);
+        elevatorDownButton = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnLB);
+        elevatorUpButton = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnRB);
 
-        elevatorDownButton.whenPressed(new ElevatorMoveCommand(0));
-        elevatorUpButton.whenPressed(new ElevatorMoveCommand(10));
+        //elevatorDownButton.whenPressed(new ElevatorMoveCommand(0));
+        //elevatorUpButton.whenPressed(new ElevatorMoveCommand(10));
+
+        elevatorDownButton.whileHeld(new ElevatorUpCommand());
+        elevatorUpButton.whileHeld(new ElevatorDownCommand());
         
         intakeInButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnLB);
         intakeOutButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnRB);
@@ -65,7 +68,7 @@ public class OI
         //wristDownButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
         //wristUpButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
 
-        pistonsButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnB);
+        //pistonsButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnB);
 
         //ballcargopresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
         //ballhighpresetbutton = new JoystickButton(joystickNum, UniversalNumpad.kBtnX);
@@ -92,6 +95,16 @@ public class OI
     {
         return joystickDrive.rightAxisY();
     }
+
+    // public double getLeftTestSpeed()
+    // {
+    //     return joystickAccessory.leftAxisY();
+    // }
+
+    // public double getRightTestSpeed()
+    // {
+    //     return joystickAccessory.rightAxisY();
+    // }
 
     double deadBand(double axisVal) {
 		if (axisVal < -0.150)

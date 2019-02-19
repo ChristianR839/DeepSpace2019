@@ -7,8 +7,9 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 /*
  * @Authors
@@ -20,7 +21,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 public class Intake extends Subsystem
 {
 
-  private static final int intakeMotorID = 5;
+  private static final int intakeMotorID = 10;
   private final WPI_TalonSRX intakeMotor;
 
   @Override

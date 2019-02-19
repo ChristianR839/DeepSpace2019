@@ -21,36 +21,39 @@ public class DriveTrain extends Subsystem
 {
   public DifferentialDrive robotDrive;
 
-  private static final int TalonSRX04ID = 4;
-  private static final int TalonSRX03ID = 3;
   private static final int TalonSRX01ID = 1;
   private static final int TalonSRX02ID = 2;
+  private static final int TalonSRX05ID = 5;
+  private static final int TalonSRX06ID = 6;
 
   public void initDefaultCommand() 
   {
     setDefaultCommand(new DriveWithJoystick());
   }
 
-public DriveTrain()
-{
-  final WPI_TalonSRX _leftFront = new WPI_TalonSRX(TalonSRX04ID);
-  final WPI_TalonSRX _leftFollower = new WPI_TalonSRX(TalonSRX03ID);
-  final WPI_TalonSRX _rghtFront = new WPI_TalonSRX(TalonSRX01ID);
-  final WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(TalonSRX02ID);
+  public DriveTrain()
+  {
+    final WPI_TalonSRX _leftFront = new WPI_TalonSRX(TalonSRX02ID);
+    final WPI_TalonSRX _leftFollower = new WPI_TalonSRX(TalonSRX01ID);
+    final WPI_TalonSRX _rghtFront = new WPI_TalonSRX(TalonSRX06ID);
+    final WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(TalonSRX05ID);
 
-  final SpeedControllerGroup rightSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
-  final SpeedControllerGroup leftSide = new SpeedControllerGroup(_leftFront, _leftFollower);
+    final SpeedControllerGroup rightSide = new SpeedControllerGroup(_rghtFront, _rghtFollower);
+    final SpeedControllerGroup leftSide = new SpeedControllerGroup(_leftFront, _leftFollower);
 
-  robotDrive = new DifferentialDrive(rightSide, leftSide);
-}
+    robotDrive = new DifferentialDrive(rightSide, leftSide);
+    System.out.println("drivetrain` const");
 
-public void setDriveSpeeds(double dleft, double dright)
-{
-  robotDrive.tankDrive(-1*dleft, -1*dright);
-}
+    _leftFollower.setInverted(true);
+  }
 
-public void stop()
-{
-  robotDrive.stopMotor();
-}
+  public void setDriveSpeeds(double dright, double dleft)
+  {
+    robotDrive.tankDrive(dright, dleft);
+  }
+
+  public void stop()
+  {
+    robotDrive.stopMotor();
+  }
 }
