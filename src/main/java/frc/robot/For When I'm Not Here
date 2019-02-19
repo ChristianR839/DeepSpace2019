@@ -1,0 +1,48 @@
+
+We have to get this robot done and bagged before midnight, and I can't be here for a bit
+There are a few things that need to get done
+
+1) Finalize the controls of the system itself
+    There are other things that have to be done prior to this, such as step 4
+    Basically, map out the system on paper first, and then in the code
+    Make sure it feels good and is easy to understand
+
+    As for the presets: We ARE using a controller instead of the numpad
+    They will look like this (butons on the controller):
+
+       0            0
+    0     O      C     0
+       0            0
+
+    The circles with slashes (0) are where the six major presets are going to be,
+    and then the seventh (cargo) will be at the "C"
+    [Hatches on the left and balls on the right]
+
+    All of those will be on the accessory controller
+
+
+2) The vision system (with the Pixy) needs to be mounted and tested
+    The 3D-printed case is somewhere (ask jason)
+    It needs to be mounted with the correct ring light (preferably green)
+    The location needs to be central and able to see the front accessory
+    From there, work to tweak it and figure out what needs to be done
+
+
+3) Data wires (for the encoders and limit switches) need to be put on the robot
+    Make sure they are plugged into the correct Talons
+    There are the following sensors:
+        Encoders (maybe potentiometers)
+        - Elevator (there is a bracket already there) [Talon 07]
+        - Shoulder [Talon 03]
+        - Wrist [Talon 10]
+        Limit Switches
+        - Bottom of elevator
+        - Top of elevator
+
+
+4) Automation of the movement of the accessory
+    Make the elevator, shoudler, and wrist work together in movement
+    This must be done so the operators don't have to be pressing 7 buttons at a time
+
+
+Thank you for working on all this and I'll be back soon

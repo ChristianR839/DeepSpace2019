@@ -21,7 +21,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Intake extends Subsystem
 {
 
-  private static final int intakeMotorID = 10;
+  private static final int intakeMotorID = 9;
   private final WPI_TalonSRX intakeMotor;
 
   @Override

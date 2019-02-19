@@ -16,12 +16,13 @@ import frc.robot.Robot;
  * FRC 839
  */
 
-public class WristUpCommand extends Command
+public class ShoulderAnalogCommand extends Command
 {
-  public WristUpCommand()
-    {
-    	requires(Robot.wrist);
-    }
+
+  public ShoulderAnalogCommand()
+  {
+    requires(Robot.shoulder);
+  }
 
   @Override
   protected void initialize()
@@ -32,24 +33,18 @@ public class WristUpCommand extends Command
   @Override
   protected void execute()
   {
-    Robot.wrist.up();
+    Robot.shoulder.moveShoulderAnalog(Robot.oi.getShoulderAnalogSpeed());
   }
 
   @Override
   protected boolean isFinished()
   {
-    return false;
+    return this.isTimedOut();
   }
 
   @Override
   protected void end()
   {
-    Robot.wrist.stop();
-  }
-
-  @Override
-  protected void interrupted()
-  {
-    end();
+    Robot.shoulder.stop();
   }
 }

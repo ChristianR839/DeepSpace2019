@@ -14,6 +14,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.ElevatorAnalogCommand;
 
 /*
  * @Authors
@@ -56,8 +57,6 @@ public class Elevator extends Subsystem
     elevatorMotor = new WPI_TalonSRX(elevatorMotorID);
     elevatorMotorFollower = new WPI_TalonSRX(elevatorMotorFollowerID);
 
-    elevatorMotorFollower.setInverted(true);
-
     // elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
 
     // elevatorMotor.configForwardSoftLimitThreshold(getRawSensorValueFromInches(maximumHeight));
@@ -66,14 +65,12 @@ public class Elevator extends Subsystem
     // elevatorMotor.configReverseSoftLimitEnable(true);
 
     elevatorMotorFollower.set(ControlMode.Follower,elevatorMotor.getDeviceID());
-
-    System.out.println("elevator const");
   }
 
   @Override
   public void initDefaultCommand()
   {
-    
+    setDefaultCommand(new ElevatorAnalogCommand());
   }
 
   /**
@@ -110,14 +107,9 @@ public class Elevator extends Subsystem
     return onTarget;
   }
 
-  public void raise()
+  public void moveElevatorAnalog(double elevatorAnalogSpeed)
     {
-      elevatorMotor.set(1);
-    }
-
-  public void lower()
-    {
-      elevatorMotor.set(-1);
+      elevatorMotor.set(elevatorAnalogSpeed);
     }
 
   public void stop()

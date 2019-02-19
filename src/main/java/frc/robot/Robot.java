@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import java.util.ArrayList;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -19,18 +21,6 @@ import frc.robot.subsystems.Wrist;
 import frc.robot.vision.Pixy2;
 import frc.robot.vision.Pixy2.LinkType;
 import frc.robot.vision.Pixy2CCC;
-import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.SPI.Port;
-import java.util.ArrayList;
-import java.util.HashMap;
-/*
- * @Authors
- * Christian
- * Jackson
- * FRC 839
- */
-
-import javax.lang.model.util.ElementScanner6;
 
 public class Robot extends TimedRobot
 {
@@ -48,8 +38,7 @@ public class Robot extends TimedRobot
     Command autonomousCommand;
 
     @Override
-    public void robotInit()
-    {
+    public void robotInit() {
 
         drivetrain = new DriveTrain();
         intake = new Intake();
@@ -135,6 +124,7 @@ public class Robot extends TimedRobot
     public void teleopInit() 
     {
         if (autonomousCommand != null) autonomousCommand.cancel();
+
     }
 
     @Override

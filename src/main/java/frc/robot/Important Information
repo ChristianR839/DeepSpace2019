@@ -66,3 +66,31 @@ Author Tag
  * Jackson
  * FRC 839
  */
+
+
+CAN Network Information
+
+Firmware
+- Last Updated: 2/19
+  - TalonSRX: 4.17
+  - PDP: 1.40
+  - PCM: 1.65
+
+ID Numbers
+00: PDP (Device ID 0)
+01: Talon SRX 01 (LB)       Left Back           [F]     _leftFollower
+02: Talon SRX 02 (LF)       Left Front          [M]     _leftFront
+03: Talon SRX 03 (SM)       Shoulder Motor      [M]     shoulderMotor
+04: Talon SRX 04 (SF)       Shoulder Follower   [F]     shoulderMotorFollower
+05: Talon SRX 05 (RB)       Right Back          [F]     _rghtFollower
+06: Talon SRX 06 (RF)       Right Front         [M]     _rghtFront
+07: Talon SRX 07 (EM)       Elevator Motor      [M]     elevatorMotor
+08: Talon SRX 08 (EF)       Elevator Follower   [F]     elevatorMotorFollower
+09: Talon SRX 09 (IM)       Intake Motor        [I]     intakeMotor
+10: Talon SRX 10 (WM)       Wrist Motor         [I]     intakeMotor
+11: PCM (Device ID 11)
+
+Key
+[M]: Master
+[F]: Follower
+[I]: Independent

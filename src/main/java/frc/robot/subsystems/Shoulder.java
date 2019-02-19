@@ -20,6 +20,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.ShoulderAnalogCommand;
 
 /*
  * @Authors
@@ -74,7 +75,7 @@ public class Shoulder extends Subsystem
   @Override
   public void initDefaultCommand()
   {
-    
+    setDefaultCommand(new ShoulderAnalogCommand());
   }
 
   /**
@@ -111,14 +112,9 @@ public class Shoulder extends Subsystem
   //   return onTarget;
   // }
   
-  public void up()
+  public void moveShoulderAnalog(double shoulderAnalogSpeed)
   {
-    shoulderMotor.set(1);
-  }
-  
-  public void down()
-  {
-    shoulderMotor.set(-1);
+    shoulderMotor.set(shoulderAnalogSpeed);
   }
   
   public void stop()

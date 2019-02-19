@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.WristAnalogCommand;
 
 /*
  * @Authors
@@ -21,13 +22,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Wrist extends Subsystem
 {
 
-  private static final int wristMotorID = 9;
+  private static final int wristMotorID = 10;
   private final WPI_TalonSRX wristMotor;
 
   @Override
   public void initDefaultCommand()
   {
-    
+    setDefaultCommand(new WristAnalogCommand());
   }
 
   public Wrist()
@@ -36,14 +37,9 @@ public class Wrist extends Subsystem
     wristMotor.configFactoryDefault();
   }
 
-  public void up()
+  public void moveWristAnalog(double wristAnalogSpeed)
 	{
-    wristMotor.set(1);
-  }
-  
-  public void down()
-	{
-		wristMotor.set(-1.0);
+    wristMotor.set(wristAnalogSpeed);
   }
   
   public void stop()

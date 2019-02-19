@@ -16,10 +16,9 @@ import frc.robot.Robot;
  * FRC 839
  */
 
-public class WristDownCommand extends Command
+public class WristAnalogCommand extends Command
 {
-
-  public WristDownCommand()
+  public WristAnalogCommand()
     {
     	requires(Robot.wrist);
     }
@@ -33,7 +32,7 @@ public class WristDownCommand extends Command
   @Override
   protected void execute()
   {
-    Robot.wrist.down();
+    Robot.wrist.moveWristAnalog(Robot.oi.getWristAnalogSpeed());
   }
 
   @Override

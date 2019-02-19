@@ -17,10 +17,9 @@ import frc.robot.Robot;
  * FRC 839
  */
 
-public class ElevatorDownCommand extends Command
+public class ElevatorAnalogCommand extends Command
 {
-
-  public ElevatorDownCommand()
+  public ElevatorAnalogCommand()
   {
     requires(Robot.elevator);
   }
@@ -28,17 +27,17 @@ public class ElevatorDownCommand extends Command
   @Override
   protected void initialize()
   {
-
+    
   }
 
   @Override
   protected void execute()
   {
-    Robot.elevator.lower();
+    Robot.elevator.moveElevatorAnalog(Robot.oi.getElevatorAnalogSpeed());
   }
 
   @Override
-  protected boolean isFinished()
+  protected boolean isFinished() 
   {
     return false;
   }
@@ -52,6 +51,6 @@ public class ElevatorDownCommand extends Command
   @Override
   protected void interrupted()
   {
-    end(); 
+    end();
   }
 }

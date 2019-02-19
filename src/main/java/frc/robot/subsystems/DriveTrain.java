@@ -42,8 +42,6 @@ public class DriveTrain extends Subsystem
     final SpeedControllerGroup leftSide = new SpeedControllerGroup(_leftFront, _leftFollower);
 
     robotDrive = new DifferentialDrive(rightSide, leftSide);
-    System.out.println("drivetrain` const");
-
     _leftFollower.setInverted(true);
   }
 
