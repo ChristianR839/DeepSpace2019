@@ -21,7 +21,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Wrist extends Subsystem
 {
 
-  private static final int wristMotorID = 6;
+  private static final int wristMotorID = 9;
   private final WPI_TalonSRX wristMotor;
 
   @Override
