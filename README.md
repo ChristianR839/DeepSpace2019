@@ -9,7 +9,7 @@ We use a 4-motor 6-wheel drop center drive train (kit)
 
 Accessories:
 - Intake
-- Wrist / Shoulder (two diffrerent components)
+- Wrist / Shoulder (two different components)
 - Elevator
 
 Thank you to Austin and Brent for helping us write these files
