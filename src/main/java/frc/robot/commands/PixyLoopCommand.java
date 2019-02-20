@@ -7,11 +7,16 @@
 
 package frc.robot.commands;
 
+//import org.junit.Assume.assumeNoException;
+
 import edu.wpi.first.wpilibj.command.Command;
+//import frc.robot.VisionTracking;
 
 
 public class PixyLoopCommand extends Command
 {
+ // private VisionTracking tracking = new VisionTracking();
+
   public PixyLoopCommand()
   {
 
@@ -32,6 +37,7 @@ public class PixyLoopCommand extends Command
   @Override
   protected boolean isFinished()
   {
+    
     return false;
   }
 

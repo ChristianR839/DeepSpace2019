@@ -9,8 +9,10 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.PistonsCommand;
 
 /*
  * @Authors
@@ -21,13 +23,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Pistons extends Subsystem
 {
-  private final DoubleSolenoid pistonsSolenoid;
+  private DoubleSolenoid pistonsSolenoid;
   Compressor compressor = new Compressor(11);
 
   public Pistons()
   {
-    pistonsSolenoid = new DoubleSolenoid(0, 1);
     compressor.setClosedLoopControl(true);
+    pistonsSolenoid = new DoubleSolenoid(11, 0, 1);
   }
 
   @Override
@@ -43,6 +45,6 @@ public class Pistons extends Subsystem
 
   public void release()
 	{
-		pistonsSolenoid.set(Value.kOff);
+	 pistonsSolenoid.set(Value.kReverse);
   }
 }

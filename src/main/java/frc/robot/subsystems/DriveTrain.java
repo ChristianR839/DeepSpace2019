@@ -42,7 +42,6 @@ public class DriveTrain extends Subsystem
     final SpeedControllerGroup leftSide = new SpeedControllerGroup(_leftFront, _leftFollower);
 
     robotDrive = new DifferentialDrive(rightSide, leftSide);
-    _leftFollower.setInverted(true);
   }
 
   public void setDriveSpeeds(double dright, double dleft)

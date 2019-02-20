@@ -37,30 +37,30 @@ public class Shoulder extends Subsystem
   public final WPI_TalonSRX shoulderMotor;
   public final WPI_TalonSRX shoulderMotorFollower;
 
-  // public final static int degreesPerRevolution = 360;
-  // public final static double ___Circumference = 2 * Math.PI * 1.0; // FIX ME
-  // public final static int tolerance = getRawSensorValueFromInches(2); // Degrees
-  // public final static double minimumPosition = 0;
-  // public final static double maximumPosition = 36;
+  public final static int degreesPerRevolution = 360;
+  public final static double ___Circumference = 2 * Math.PI * 1.0; // FIX ME
+  public final static int tolerance = getRawSensorValueFromInches(2); // Degrees
+  public final static double minimumPosition = 0;
+  public final static double maximumPosition = 36;
 
-  // // public final Potentiometer i6ij58i76o;
-  // // pot = new AnalogPotentiometer(0, 360, 30);
-  // // AnalogInput ai = new AnalogInput(1);
-  // // pot = new AnalogPotentiometer(ai, 360, 30);
+  // public final Potentiometer i6ij58i76o;
+  // pot = new AnalogPotentiometer(0, 360, 30);
+  // AnalogInput ai = new AnalogInput(1);
+  // pot = new AnalogPotentiometer(ai, 360, 30);
 
-  // private static final int getRawSensorValueFromInches(double degrees)
-  // {
-  //   double revs = degrees / ___Circumference;
-  //   int ticks = (int) (revs * degreesPerRevolution);
-  //   return ticks;
-  // }
+  private static final int getRawSensorValueFromInches(double degrees)
+  {
+    double revs = degrees / ___Circumference;
+    int ticks = (int) (revs * degreesPerRevolution);
+    return ticks;
+  }
 
-  // private static final double getInchesFromRawSensorValue(int ticks)
-  // {
-  //   double revs = ticks / degreesPerRevolution;
-  //   double degrees = revs * ___Circumference;
-  //   return degrees;
-  // }
+  private static final double getInchesFromRawSensorValue(int ticks)
+  {
+    double revs = ticks / degreesPerRevolution;
+    double degrees = revs * ___Circumference;
+    return degrees;
+  }
 
   public Shoulder()
   {
@@ -69,7 +69,12 @@ public class Shoulder extends Subsystem
 
     shoulderMotorFollower.set(ControlMode.Follower,shoulderMotor.getDeviceID());
 
-    // shoulderMotor.configSelectedFeedbackSensor(FeedbackDevice.); // FeedbackDevice.___
+    // shoulderMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute); // FeedbackDevice.___
+
+    // shoulderMotor.configForwardSoftLimitThreshold(getRawSensorValueFromInches(maximumHeight));
+    // shoulderMotor.configForwardSoftLimitEnable(true);
+    // shoulderMotor.configReverseSoftLimitThreshold(getRawSensorValueFromInches(minimumHeight));
+    // shoulderMotor.configReverseSoftLimitEnable(true);
   }
   
   @Override
@@ -81,36 +86,36 @@ public class Shoulder extends Subsystem
   /**
    * Get the position of the shoulder in degrees
    */
-  // public double getHeight()
-  // {
-  //   int ticks = shoulderMotor.getSelectedSensorPosition();
-  //   double degrees = getInchesFromRawSensorValue(ticks);
-  //   return degrees;
-  // }
+  public double getHeight()
+  {
+    int ticks = shoulderMotor.getSelectedSensorPosition();
+    double degrees = getInchesFromRawSensorValue(ticks);
+    return degrees;
+  }
 
   /**
    * Tell the shoulder how far to turn in degrees
    */
-  // public void setHeight(double inches)
-  // {
-  //   shoulderMotor.set(ControlMode.MotionMagic, getRawSensorValueFromInches(inches));
-  // }
+  public void setHeight(double inches)
+  {
+    shoulderMotor.set(ControlMode.MotionMagic, getRawSensorValueFromInches(inches));
+  }
 
   /**
    * Checks to see if the shoulder is at/near its target
    * If it is not on target return False
    */
-  // public boolean isOnTarget()
-  // {
-  //   // What is our error?
-  //   // error = goal - current
-  //   double error = shoulderMotor.getClosedLoopTarget() - shoulderMotor.getSelectedSensorPosition();
-  //   // Are we within an acceptable range?
-  //   // abs(error) - tol. <= 0
-  //   boolean onTarget = Math.abs(error) - tolerance <= 0;
-  //   // Return if we are on target
-  //   return onTarget;
-  // }
+  public boolean isOnTarget()
+  {
+    // What is our error?
+    // error = goal - current
+    double error = shoulderMotor.getClosedLoopTarget() - shoulderMotor.getSelectedSensorPosition();
+    // Are we within an acceptable range?
+    // abs(error) - tol. <= 0
+    boolean onTarget = Math.abs(error) - tolerance <= 0;
+    // Return if we are on target
+    return onTarget;
+  }
   
   public void moveShoulderAnalog(double shoulderAnalogSpeed)
   {

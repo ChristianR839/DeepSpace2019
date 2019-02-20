@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.IntakeInCommand;
 import frc.robot.commands.IntakeOutCommand;
+import frc.robot.commands.PistonsCommand;
 
 /*
  * @Authors
@@ -43,6 +44,8 @@ public class OI
         intakeOutButton.whileHeld(new IntakeOutCommand());
 
         pistonsButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnB);
+
+        pistonsButton.whileHeld(new PistonsCommand());
     }
 
     public double getLeftSpeed()
@@ -57,17 +60,17 @@ public class OI
 
     public double getElevatorAnalogSpeed()
     {
-        return joystickAccessory.triggers();
+        return joystickAccessory.leftAxisY(); // Change to joystick axis for functionality
     }
 
     public double getShoulderAnalogSpeed()
     {
-        return joystickAccessory.leftAxisY();
+        return joystickAccessory.rightAxisY();
     }
 
     public double getWristAnalogSpeed()
     {
-        return joystickAccessory.rightAxisY();
+        return joystickAccessory.triggers();
     }
 
     double deadBand(double axisVal) {
