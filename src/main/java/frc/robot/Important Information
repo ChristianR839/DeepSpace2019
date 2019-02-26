@@ -71,7 +71,7 @@ Author Tag
 CAN Network Information
 
 Firmware
-- Last Updated: 2/19
+Last Updated: 2/19
   - TalonSRX: 4.17
   - PDP: 1.40
   - PCM: 1.65
@@ -94,3 +94,9 @@ Key
 [M]: Master
 [F]: Follower
 [I]: Independent
+
+2019 Radio
+MAC - F8:D9:B8:05:9F:00
+EAN - 4 897072 710014
+S/N - OM5PAC83204271
+LOT - 100243

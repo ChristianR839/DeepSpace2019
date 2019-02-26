@@ -43,11 +43,6 @@ public class Shoulder extends Subsystem
   public final static double minimumPosition = 0;
   public final static double maximumPosition = 36;
 
-  // public final Potentiometer i6ij58i76o;
-  // pot = new AnalogPotentiometer(0, 360, 30);
-  // AnalogInput ai = new AnalogInput(1);
-  // pot = new AnalogPotentiometer(ai, 360, 30);
-
   private static final int getRawSensorValueFromInches(double degrees)
   {
     double revs = degrees / ___Circumference;
@@ -69,11 +64,11 @@ public class Shoulder extends Subsystem
 
     shoulderMotorFollower.set(ControlMode.Follower,shoulderMotor.getDeviceID());
 
-    // shoulderMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute); // FeedbackDevice.___
+    shoulderMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute); // FeedbackDevice.___
 
-    // shoulderMotor.configForwardSoftLimitThreshold(getRawSensorValueFromInches(maximumHeight));
+    // shoulderMotor.configForwardSoftLimitThreshold(getRawSensorValueFromInches(maximumPosition));
     // shoulderMotor.configForwardSoftLimitEnable(true);
-    // shoulderMotor.configReverseSoftLimitThreshold(getRawSensorValueFromInches(minimumHeight));
+    // shoulderMotor.configReverseSoftLimitThreshold(getRawSensorValueFromInches(minimumPosition));
     // shoulderMotor.configReverseSoftLimitEnable(true);
   }
   
