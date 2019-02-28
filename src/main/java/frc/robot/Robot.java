@@ -30,7 +30,6 @@ public class Robot extends TimedRobot
     public static OI oi;
     public static Shoulder shoulder;
 
-
     private int counter = 0;
 
     Command autonomousCommand;

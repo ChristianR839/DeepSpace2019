@@ -8,9 +8,8 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -34,7 +33,7 @@ public class Elevator extends Subsystem
 
   public final static int ticksPerRevolution = 4096;
   public final static double sprkCircumference = 2 * Math.PI * 0.895; // Diameter 1.790
-  public final static int tolerance = getRawSensorValueFromInches(0.5);
+  public final static int tolerance = getRawSensorValueFromInches(0.5); // Ticks
   public final static double minimumHeight = 0;
   public final static double maximumHeight = 36;
 
@@ -57,7 +56,7 @@ public class Elevator extends Subsystem
     elevatorMotor = new WPI_TalonSRX(elevatorMotorID);
     elevatorMotorFollower = new WPI_TalonSRX(elevatorMotorFollowerID);
 
-    // elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+    elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
 
     // elevatorMotor.configForwardSoftLimitThreshold(getRawSensorValueFromInches(maximumHeight));
     // elevatorMotor.configForwardSoftLimitEnable(true);
@@ -88,7 +87,7 @@ public class Elevator extends Subsystem
    */
   public void setHeight(double inches)
   {
-    // elevatorMotor.set(ControlMode.MotionMagic, getRawSensorValueFromInches(inches));
+    elevatorMotor.set(ControlMode.MotionMagic, getRawSensorValueFromInches(inches));
   }
 
   /**
@@ -111,6 +110,16 @@ public class Elevator extends Subsystem
     {
       elevatorMotor.set(elevatorAnalogSpeed);
     }
+
+  public void raise()
+  {
+    elevatorMotor.set(1);
+  }
+
+  public void lower()
+  {
+    elevatorMotor.set(-1);
+  }
 
   public void stop()
     {

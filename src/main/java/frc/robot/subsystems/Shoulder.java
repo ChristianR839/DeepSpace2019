@@ -8,18 +8,10 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
-import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.interfaces.Potentiometer;
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ShoulderAnalogCommand;
 
 /*
@@ -29,30 +21,29 @@ import frc.robot.commands.ShoulderAnalogCommand;
  * FRC 839
  */
 
-public class Shoulder extends Subsystem
-{
+public class Shoulder extends Subsystem {
   private static final int shoulderMotorID = 3;
   private static final int shoulderMotorFollowerID = 4;
 
   public final WPI_TalonSRX shoulderMotor;
   public final WPI_TalonSRX shoulderMotorFollower;
 
-  public final static int degreesPerRevolution = 360;
+  public final static int ticksPerRevolution = 4096;
   public final static double ___Circumference = 2 * Math.PI * 1.0; // FIX ME
-  public final static int tolerance = getRawSensorValueFromInches(2); // Degrees
+  public final static int tolerance = getRawSensorValueFromInches(2); // Ticks
   public final static double minimumPosition = 0;
   public final static double maximumPosition = 36;
 
   private static final int getRawSensorValueFromInches(double degrees)
   {
     double revs = degrees / ___Circumference;
-    int ticks = (int) (revs * degreesPerRevolution);
+    int ticks = (int) (revs * ticksPerRevolution);
     return ticks;
   }
 
   private static final double getInchesFromRawSensorValue(int ticks)
   {
-    double revs = ticks / degreesPerRevolution;
+    double revs = ticks / ticksPerRevolution;
     double degrees = revs * ___Circumference;
     return degrees;
   }
@@ -64,7 +55,7 @@ public class Shoulder extends Subsystem
 
     shoulderMotorFollower.set(ControlMode.Follower,shoulderMotor.getDeviceID());
 
-    shoulderMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute); // FeedbackDevice.___
+    shoulderMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
 
     // shoulderMotor.configForwardSoftLimitThreshold(getRawSensorValueFromInches(maximumPosition));
     // shoulderMotor.configForwardSoftLimitEnable(true);
@@ -81,7 +72,7 @@ public class Shoulder extends Subsystem
   /**
    * Get the position of the shoulder in degrees
    */
-  public double getHeight()
+  public double getPosition()
   {
     int ticks = shoulderMotor.getSelectedSensorPosition();
     double degrees = getInchesFromRawSensorValue(ticks);
@@ -91,9 +82,9 @@ public class Shoulder extends Subsystem
   /**
    * Tell the shoulder how far to turn in degrees
    */
-  public void setHeight(double inches)
+  public void setPosition(double degrees)
   {
-    shoulderMotor.set(ControlMode.MotionMagic, getRawSensorValueFromInches(inches));
+    shoulderMotor.set(ControlMode.MotionMagic, getRawSensorValueFromInches(degrees));
   }
 
   /**
@@ -115,6 +106,16 @@ public class Shoulder extends Subsystem
   public void moveShoulderAnalog(double shoulderAnalogSpeed)
   {
     shoulderMotor.set(shoulderAnalogSpeed);
+  }
+
+  public void up()
+  {
+    shoulderMotor.set(1);
+  }
+
+  public void down()
+  {
+    shoulderMotor.set(-1);
   }
   
   public void stop()

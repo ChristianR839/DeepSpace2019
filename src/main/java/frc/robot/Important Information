@@ -100,3 +100,22 @@ MAC - F8:D9:B8:05:9F:00
 EAN - 4 897072 710014
 S/N - OM5PAC83204271
 LOT - 100243
+
+
+Objectives to be completed before MARCH 8
+
+1) Movement valeus for parallel commands
+2) Test vision (if Jackson has done his work properly)
+3) Create encoder wires
+    a) Wire encoders
+4) Create limit switch wires
+    a) Wire limit switches
+5) Program limit switches
+6) Program elevator presets
+7) Get visual cameras running
+    a) Practice driving with cameras only
+8) Finalize controls
+9) Try to remain calm during the next few weeks even though there
+   will be a great deal of pressure put on me because I, along with
+   everyone else, have an important job to do that is not yet
+   completed and has to be done
