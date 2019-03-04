@@ -7,8 +7,10 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.ElevatorMoveCommand;
 import frc.robot.commands.IntakeInCommand;
 import frc.robot.commands.IntakeOutCommand;
 import frc.robot.commands.PistonsCommand;
@@ -29,6 +31,14 @@ public class OI
     public Button intakeOutButton;
     public Button pistonsButton;
 
+    public Button ballLowPreset;
+    public Button ballMidPreset;
+    public Button ballHighPreset;
+    public Button ballCargoPreset;
+    public Button hatchLowPreset;
+    public Button hatchMidPreset;
+    public Button hatchHighPreset;
+
     public OI()
     {
         //elevatorDownButton = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnLB);
@@ -36,6 +46,22 @@ public class OI
 
         //elevatorDownButton.whenPressed(new ElevatorMoveCommand(0));
         //elevatorUpButton.whenPressed(new ElevatorMoveCommand(10));
+
+        ballLowPreset = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnA);
+        ballMidPreset = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnB);
+        ballHighPreset = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnY);
+        ballCargoPreset = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnX);
+        hatchLowPreset = new JoystickButton(GenericHID.getPOV(180)); //pov maybe?? ask mentor
+        hatchMidPreset = new JoystickButton(getPOV(270)); //FIX
+        hatchHighPreset = new JoystickButton(getPOV(0)); //FIX
+
+        ballLowPreset.whenPressed(new ElevatorMoveCommand(27.5));
+        ballMidPreset.whenPressed(new ElevatorMoveCommand(55.5));
+        ballHighPreset.whenPressed(new ElevatorMoveCommand(83.5));
+        ballCargoPreset.whenPressed(new ElevatorMoveCommand(31.5));
+        hatchLowPreset.whenPressed(new ElevatorMoveCommand(19));
+        hatchMidPreset.whenPressed(new ElevatorMoveCommand(47));
+        hatchHighPreset.whenPressed(new ElevatorMoveCommand(75));
 
         intakeInButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnLB);
         intakeOutButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnRB);

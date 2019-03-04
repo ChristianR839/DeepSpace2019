@@ -10,7 +10,7 @@ package frc.robot.commands.parallels;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.parallels.directional.ElevatorDownCommand;
 import frc.robot.commands.parallels.directional.ShoulderDownCommand;
-import frc.robot.commands.parallels.directional.WristDownCommand;
+import frc.robot.commands.parallels.directional.WristUpCommand;
 
 public class ElevatorDownParallel extends CommandGroup {
 
@@ -21,7 +21,7 @@ public class ElevatorDownParallel extends CommandGroup {
     
     addSequential(new ElevatorDownCommand());
     addParallel(new ShoulderDownCommand());
-    addParallel(new WristDownCommand());
+    addParallel(new WristUpCommand());
     
     // Add Commands here:
     // e.g. addSequential(new Command1());
