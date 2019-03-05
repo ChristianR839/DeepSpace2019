@@ -51,9 +51,9 @@ public class OI
         ballMidPreset = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnB);
         ballHighPreset = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnY);
         ballCargoPreset = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnX);
-        hatchLowPreset = new JoystickButton(GenericHID.getPOV(180)); //pov maybe?? ask mentor
-        hatchMidPreset = new JoystickButton(getPOV(270)); //FIX
-        hatchHighPreset = new JoystickButton(getPOV(0)); //FIX
+        //hatchLowPreset = new DPadButton(joystickDrive, DOWN);
+       // hatchMidPreset = new JoystickButton(getPOV(270)); //FIX
+       // hatchHighPreset = new JoystickButton(getPOV(0)); //FIX
 
         ballLowPreset.whenPressed(new ElevatorMoveCommand(27.5));
         ballMidPreset.whenPressed(new ElevatorMoveCommand(55.5));
