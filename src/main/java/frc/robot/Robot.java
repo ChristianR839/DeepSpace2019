@@ -7,15 +7,14 @@
 
 package frc.robot;
 
-import java.util.ArrayList;
-
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.Pistons;
+// import frc.robot.subsystems.Pistons;
 import frc.robot.subsystems.Shoulder;
 import frc.robot.subsystems.Wrist;
 
@@ -25,7 +24,7 @@ public class Robot extends TimedRobot
     public static Intake intake;
     public static Elevator elevator;
     public static Wrist wrist;
-    public static Pistons pistons;
+    // public static Pistons pistons;
     public static DriveTrain drivetrain;
     public static OI oi;
     public static Shoulder shoulder;
@@ -42,9 +41,11 @@ public class Robot extends TimedRobot
         elevator = new Elevator();
         wrist = new Wrist();
         shoulder = new Shoulder();
-        pistons = new Pistons();
+        // pistons = new Pistons();
 
         oi = new OI();
+
+        CameraServer.getInstance().startAutomaticCapture();
     }
 
     @Override

@@ -26,6 +26,7 @@ public class ElevatorMoveCommand extends Command
   protected void initialize()
   {
     Robot.elevator.setHeight(goal);
+    Robot.elevator.updateSmartDashboard();
   }
 
   // Make this return true when this Command no longer needs to run execute()

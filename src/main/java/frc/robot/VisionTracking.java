@@ -69,7 +69,7 @@ public class VisionTracking
         }
 
        //System.out.println("PxToMove: " + pixelstomove);//////////////////////////motors
-        System.out.println("Degrees_to_Move: " + pixelstomove * DEGREES_PER_PIXEL + );
+        System.out.println("Degrees_to_Move: " + pixelstomove * DEGREES_PER_PIXEL + 0 ); // 0 = Placeholder
 
         return pixelstomove * DEGREES_PER_PIXEL;  
     }
