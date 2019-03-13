@@ -7,13 +7,10 @@ NOTE: These files will be changed and updated throughout the season and the fina
 
 We use a 4-motor 6-wheel drop center drive train (kit)
 
-Accessories:
-- Intake
-- Wrist / Shoulder (two different components)
-- Elevator
+Our accessory includes a single-motor shoulder mounted in the carriage in the elevator which moves an arm with our hatch panel manipulation device on the end of it which is a piston with two positions (in and out) that will grab and release hatch panels with ease.
 
-Thank you to Austin and Brent for helping us write these files
+**Thank you to Austin and Brent for helping us write these files**
 
 To any other team who may be reading this, good luck this season!
 
-839 Programming Team
+839 Programming Team <3
