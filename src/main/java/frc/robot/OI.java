@@ -7,6 +7,9 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 /*
  * @Authors
  * Christian
@@ -21,7 +24,8 @@ public class OI
     
     // public Button intakeInButton;
     // public Button intakeOutButton;
-    // public Button pistonsButton;
+    public Button pistonsPushButton;
+    public Button pistonsPullButton;
 
     // public Button ballLowPreset;
     // public Button ballMidPreset;
@@ -61,7 +65,8 @@ public class OI
         // intakeInButton.whileHeld(new IntakeInCommand());
         // intakeOutButton.whileHeld(new IntakeOutCommand());
 
-        // pistonsButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnB);
+        pistonsPushButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnLB);
+        pistonsPullButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnRB);
 
         // pistonsButton.whileHeld(new PistonsCommand());
     }
@@ -73,7 +78,7 @@ public class OI
 
     public double getRightSpeed()
     {
-        return joystickDrive.rightAxisY(); // Change to right joystick Y axis for functionality
+        return joystickDrive.rightAxisY();
     }
 
     public double getElevatorAnalogSpeed()
@@ -86,15 +91,15 @@ public class OI
         return joystickAccessory.rightAxisY();
     }
 
-    public double getWristAnalogSpeed()
-    {
-        return joystickDrive.rightAxisY(); //FIXFIXFIX
-    }
+    // public double getWristAnalogSpeed()
+    // {
+    //     return joystickDrive.rightAxisY(); //FIXFIXFIX
+    // }
 
     double deadBand(double axisVal) {
-		if (axisVal < -0.150)
+		if (axisVal < -0.200)
 			return axisVal;
-		if (axisVal > +0.150)
+		if (axisVal > +0.200)
 			return axisVal;
 		return 0;
     }

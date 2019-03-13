@@ -13,7 +13,7 @@ public class VisionTracking
     private static final double DEGREES_PER_PIXEL = 0.338028169;
     private static Pixy2 pixy;
 
-    private int counter = 0;
+    //private int counter = 0;
 
 
     public VisionTracking() {
