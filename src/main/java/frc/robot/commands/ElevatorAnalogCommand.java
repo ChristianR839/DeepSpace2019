@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.Elevator;
 
 /*
  * @Authors
@@ -34,6 +35,7 @@ public class ElevatorAnalogCommand extends Command
   protected void execute()
   {
     Robot.elevator.moveElevatorAnalog(Robot.oi.getElevatorAnalogSpeed());
+    System.out.println(Elevator.elevatorMotor.getSelectedSensorPosition(0));
   }
 
   @Override
