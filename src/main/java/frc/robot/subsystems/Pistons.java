@@ -39,10 +39,12 @@ public class Pistons extends Subsystem
   public void push()
 	{
     pistonsSolenoid.set(Value.kForward);
+    System.out.println("PUSH");
   }
 
   public void pull()
 	{
-	 pistonsSolenoid.set(Value.kReverse);
+   pistonsSolenoid.set(Value.kReverse);
+   System.out.println("PULL");
   }
 }
