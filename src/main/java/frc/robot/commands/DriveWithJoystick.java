@@ -3,6 +3,13 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
+/*
+ * @Authors
+ * Christian
+ * Jackson
+ * FRC 839
+ */
+
 public class DriveWithJoystick extends Command
 {
     public DriveWithJoystick() 

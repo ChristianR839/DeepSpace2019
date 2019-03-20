@@ -18,6 +18,12 @@ import frc.robot.subsystems.Pistons;
 import frc.robot.subsystems.Shoulder;
 // import frc.robot.subsystems.Wrist;
 
+/*
+ * @Authors
+ * Christian
+ * Jackson
+ * FRC 839
+ */
 
 public class Robot extends TimedRobot
 {

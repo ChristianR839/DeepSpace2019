@@ -15,8 +15,12 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.commands.DriveWithJoystick;
 
 /*
- * Add your docs here.
+ * @Authors
+ * Christian
+ * Jackson
+ * FRC 839
  */
+
 public class DriveTrain extends Subsystem
 {
   public DifferentialDrive robotDrive;

@@ -3,6 +3,13 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 
+/*
+ * @Authors
+ * Christian
+ * Jackson
+ * FRC 839
+ */
+
 public class DPadButton extends Button {
 
     Joystick joystick;
