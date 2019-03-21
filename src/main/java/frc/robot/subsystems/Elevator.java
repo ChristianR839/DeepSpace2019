@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 // import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 // import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
@@ -27,10 +28,10 @@ public class Elevator extends Subsystem
 {
 
   private static final int elevatorMotorID = 7;
-  // private static final int elevatorMotorFollowerID = 8;
+  private static final int elevatorMotorFollowerID = 8;
 
   public static WPI_TalonSRX elevatorMotor;
-  // public final WPI_TalonSRX elevatorMotorFollower;
+  public final WPI_TalonSRX elevatorMotorFollower;
 
   public final static int ticksPerRevolution = 4096;
   public final static double sprkCircumference = 2 * Math.PI * 0.895; // Diameter 1.790
@@ -55,7 +56,7 @@ public class Elevator extends Subsystem
   public Elevator()
   {
     elevatorMotor = new WPI_TalonSRX(elevatorMotorID);
-    // elevatorMotorFollower = new WPI_TalonSRX(elevatorMotorFollowerID);
+    elevatorMotorFollower = new WPI_TalonSRX(elevatorMotorFollowerID);
 
     elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
 
@@ -64,7 +65,7 @@ public class Elevator extends Subsystem
     // elevatorMotor.configReverseSoftLimitThreshold(getRawSensorValueFromInches(minimumHeight));
     // elevatorMotor.configReverseSoftLimitEnable(false);
 
-    // elevatorMotorFollower.set(ControlMode.Follower,elevatorMotor.getDeviceID());
+    elevatorMotorFollower.set(ControlMode.Follower,elevatorMotor.getDeviceID());
   }
 
   @Override

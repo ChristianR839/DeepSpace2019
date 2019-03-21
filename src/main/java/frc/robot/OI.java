@@ -9,6 +9,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.PistonsPullCommand;
+import frc.robot.commands.PistonsPushCommand;
 
 /*
  * @Authors
@@ -65,8 +67,11 @@ public class OI
         // intakeInButton.whileHeld(new IntakeInCommand());
         // intakeOutButton.whileHeld(new IntakeOutCommand());
 
-        pistonsPushButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnLB);
-        pistonsPullButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnRB);
+        pistonsPushButton = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnLB);
+        pistonsPullButton = new JoystickButton(joystickAccessory, UniversalJoystick.kBtnRB);
+
+        pistonsPushButton.whenPressed(new PistonsPushCommand());
+        pistonsPullButton.whenPressed(new PistonsPullCommand());
 
         // pistonsButton.whileHeld(new PistonsCommand());
     }

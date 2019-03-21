@@ -32,9 +32,8 @@ public class Robot extends TimedRobot
     // public static Wrist wrist;
     public static Pistons pistons;
     public static DriveTrain drivetrain;
-    public static OI oi;
     public static Shoulder shoulder;
-
+    public static OI oi;
     // private int counter = 0;
 
     Command autonomousCommand;
