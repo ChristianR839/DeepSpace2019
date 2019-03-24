@@ -35,7 +35,9 @@ public class ElevatorAnalogCommand extends Command
   protected void execute()
   {
     Robot.elevator.moveElevatorAnalog(Robot.oi.getElevatorAnalogSpeed());
-    //System.out.println(Elevator.elevatorMotor.getSelectedSensorPosition(0));
+    //System.out.println("POSITION:" + Elevator.elevatorMotor.getSelectedSensorPosition(0));
+    //System.out.println("VELOCITY:" + Elevator.elevatorMotor.getSelectedSensorVelocity(0));
+    System.out.println(Elevator.elevatorMotor.get());
   }
 
   @Override

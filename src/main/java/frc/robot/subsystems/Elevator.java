@@ -66,6 +66,10 @@ public class Elevator extends Subsystem
     // elevatorMotor.configReverseSoftLimitEnable(false);
 
     elevatorMotorFollower.set(ControlMode.Follower,elevatorMotor.getDeviceID());
+
+    elevatorMotor.config_kF(0, 1);
+    elevatorMotor.configMotionCruiseVelocity(512);
+    elevatorMotor.configMotionAcceleration(512);
   }
 
   @Override

@@ -46,6 +46,9 @@ public class DriveTrain extends Subsystem
     final SpeedControllerGroup leftSide = new SpeedControllerGroup(_leftFront, _leftFollower);
 
     robotDrive = new DifferentialDrive(rightSide, leftSide);
+
+    _leftFront.configOpenloopRamp(0.3);
+    _rghtFront.configOpenloopRamp(0.3);
   }
 
   public void setDriveSpeeds(double dright, double dleft)

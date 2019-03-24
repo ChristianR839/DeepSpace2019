@@ -28,6 +28,7 @@ public class DriveWithJoystick extends Command
     protected void execute()
     {
         Robot.drivetrain.setDriveSpeeds(Robot.oi.getRightSpeed(), Robot.oi.getLeftSpeed());
+        System.out.println("Setting: " + Robot.oi.getRightSpeed() + ":" + Robot.oi.getLeftSpeed());
         //System.out.println(Robot.oi.joystickDrive.getRawAxis(1));
     }
 
