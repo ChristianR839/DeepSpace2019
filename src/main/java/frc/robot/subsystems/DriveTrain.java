@@ -51,9 +51,9 @@ public class DriveTrain extends Subsystem
     _rghtFront.configOpenloopRamp(0.3);
   }
 
-  public void setDriveSpeeds(double dright, double dleft)
+  public void setDriveSpeeds(double xspeed, double zrotation)
   {
-    robotDrive.tankDrive(dright, dleft);
+    robotDrive.arcadeDrive(xspeed, zrotation);
   }
 
   public void stop()

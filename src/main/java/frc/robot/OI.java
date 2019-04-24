@@ -78,7 +78,7 @@ public class OI
 
     public double getLeftSpeed()
     {
-        return joystickDrive.leftAxisY();
+        return joystickDrive.leftAxisX();
     }
 
     public double getRightSpeed()
