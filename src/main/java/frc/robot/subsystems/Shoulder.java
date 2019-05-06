@@ -108,15 +108,15 @@ public class Shoulder extends Subsystem {
     shoulderMotor.set(shoulderAnalogSpeed);
   }
 
-  // public void up()
-  // {
-  //   shoulderMotor.set(1);
-  // }
+  public void up()
+  {
+    shoulderMotor.set(1);
+  }
 
-  // public void down()
-  // {
-  //   shoulderMotor.set(-1);
-  // }
+  public void down()
+  {
+    shoulderMotor.set(-1);
+  }
   
   public void stop()
   {

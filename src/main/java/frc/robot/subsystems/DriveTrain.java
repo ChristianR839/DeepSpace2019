@@ -56,6 +56,11 @@ public class DriveTrain extends Subsystem
     robotDrive.arcadeDrive(xspeed, zrotation);
   }
 
+  public void forward()
+  {
+    robotDrive.tankDrive(0.75, 0.75);
+  }
+
   public void stop()
   {
     robotDrive.stopMotor();
