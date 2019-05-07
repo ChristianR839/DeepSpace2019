@@ -61,6 +61,11 @@ public class DriveTrain extends Subsystem
     robotDrive.tankDrive(0.75, 0.75);
   }
 
+  public void backwards()
+  {
+    robotDrive.tankDrive(-0.75, -0.75);
+  }
+
   public void stop()
   {
     robotDrive.stopMotor();

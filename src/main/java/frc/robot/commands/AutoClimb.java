@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.ShoulderDownCommand;
+import frc.robot.commands.ShoulderUpCommand;
 import frc.robot.commands.DriveForwardCommand;
 
 public class AutoClimb extends CommandGroup {
@@ -17,8 +18,15 @@ public class AutoClimb extends CommandGroup {
    */
   public AutoClimb() {
 
-    addSequential(new ShoulderDownCommand(), 0.750);
+    addSequential(new ShoulderUpCommand(), 0.750);
     addSequential(new DriveForwardCommand(), 0.500);
+    addSequential(new ShoulderDownCommand(), 0.750);
+    addSequential(new BackPistonsPushCommand(), 4.000);
+    addSequential(new DriveForwardCommand(), 3.500);
+    addSequential(new DriveForwardCommand(), 4.000);
+    addParallel(new BackPistonsPullCommand(), 4.000);
+    addParallel(new ShoulderUpCommand(), 4.000);
+
 
     // Add Commands here:
     // e.g. addSequential(new Command1());

@@ -15,6 +15,7 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Elevator;
 // import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Pistons;
+import frc.robot.subsystems.BackPistons;
 import frc.robot.subsystems.Shoulder;
 // import frc.robot.subsystems.Wrist;
 
@@ -31,6 +32,7 @@ public class Robot extends TimedRobot
     public static Elevator elevator;
     // public static Wrist wrist;
     public static Pistons pistons;
+    public static BackPistons backPistons;
     public static DriveTrain drivetrain;
     public static Shoulder shoulder;
     public static OI oi;
