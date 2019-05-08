@@ -8,8 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /*
@@ -21,13 +20,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class BackPistons extends Subsystem
 {
-  private DoubleSolenoid backPistonsSolenoid;
+  private Solenoid backPistonsSolenoid;
   Compressor compressor = new Compressor(11);
 
   public BackPistons()
   {
     compressor.setClosedLoopControl(true);
-    backPistonsSolenoid = new DoubleSolenoid(11, 0, 1);
+    backPistonsSolenoid = new Solenoid(7); //2-7 are available, but most likely 2 or 7
   }
 
   @Override
@@ -38,13 +37,13 @@ public class BackPistons extends Subsystem
 
   public void back_push()
 	{
-    backPistonsSolenoid.set(Value.kForward);
+    backPistonsSolenoid.set(true);
     System.out.println("BACK_PUSH");
   }
 
   public void back_pull()
 	{
-   backPistonsSolenoid.set(Value.kReverse);
+   backPistonsSolenoid.set(false);
    System.out.println("BACK_PULL");
   }
 }
