@@ -7,7 +7,7 @@
 
 package frc.robot.subsystems;
 
-// import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 // import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
@@ -23,10 +23,10 @@ import frc.robot.commands.ShoulderAnalogCommand;
 
 public class Shoulder extends Subsystem {
   private static final int shoulderMotorID = 3;
-  // private static final int shoulderMotorFollowerID = 4;
+  private static final int shoulderMotorFollowerID = 4;
 
   public final WPI_TalonSRX shoulderMotor;
-  // public final WPI_TalonSRX shoulderMotorFollower;
+  public final WPI_TalonSRX shoulderMotorFollower;
 
   // public final static int ticksPerRevolution = 4096;
   // public final static double ___Circumference = 2 * Math.PI * 1.0; // FIX ME
@@ -51,9 +51,9 @@ public class Shoulder extends Subsystem {
   public Shoulder()
   {
     shoulderMotor = new WPI_TalonSRX(shoulderMotorID);
-    // shoulderMotorFollower = new WPI_TalonSRX(shoulderMotorFollowerID);
+    shoulderMotorFollower = new WPI_TalonSRX(shoulderMotorFollowerID);
 
-    // shoulderMotorFollower.set(ControlMode.Follower,shoulderMotor.getDeviceID());
+    shoulderMotorFollower.set(ControlMode.Follower,shoulderMotor.getDeviceID());
 
     // shoulderMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
 

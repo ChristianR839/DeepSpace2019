@@ -47,8 +47,8 @@ public class DriveTrain extends Subsystem
 
     robotDrive = new DifferentialDrive(rightSide, leftSide);
 
-    _leftFront.configOpenloopRamp(0.3);
-    _rghtFront.configOpenloopRamp(0.3);
+    _leftFront.configOpenloopRamp(0.4); //SUBJECT TO CHANGE
+    _rghtFront.configOpenloopRamp(0.4); //CHECK WITH DRIVER
   }
 
   public void setDriveSpeeds(double leftSpeed, double rightSpeed)
@@ -58,12 +58,12 @@ public class DriveTrain extends Subsystem
 
   public void forward()
   {
-    robotDrive.tankDrive(0.75, 0.75);
+    robotDrive.tankDrive(0.75, 0.75);   //CHECK WHAT SPEED THIS COULD BE CHANGED TO
   }
 
   public void backwards()
   {
-    robotDrive.tankDrive(-0.75, -0.75);
+    robotDrive.tankDrive(-0.75, -0.75); //CHECK WHAT SPEED THIS COULD BE CHANGED TO
   }
 
   public void stop()
